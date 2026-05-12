@@ -9,14 +9,13 @@
 }
 
 /*
- * TEMP: hide the Salesforce logo (top-left) and the right-side action icons
- * (Agentforce, Favorites, Global Actions, Guidance, Help, Setup, Notifications,
- * Avatar) across all demo pages. The search bar remains visible.
+ * TEMP: hide every item in the global header (Salesforce logo, search bar,
+ * Agentforce, Favorites, Global Actions, Guidance, Help, Setup, Notifications,
+ * Avatar) across all demo pages.
  *
  * HTML is intentionally preserved in globalHeader.html — to reveal these items
- * again, delete the rule below. The selector targets every global-header item
- * that is NOT the search input.
+ * again, delete the rule below.
  */
-.slds-global-header__item:not(.slds-global-header__item_search) {
+.slds-global-header__item {
     display: none;
 }
