@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+
+# Build
+dist/
+dist-ssr/
+src/build/generated/
+
+# Environment
+.env
+.env.*.local
+
+# Cursor (local-only)
+.cursor/commands/
+
+# Agent skills synced from afv-library
+.agent/skills/afv-library/
+
+# Salesforce CLI local cache and generated typings
+.sfdx/
+
+# Claude Code user-local settings
+.claude/settings.local.json
+
+# OS
+.DS_Store
+
+# Logs
+*.log

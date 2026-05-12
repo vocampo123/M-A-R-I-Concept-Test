@@ -1,0 +1,37 @@
+<template>
+    <div class="mc-watchlist-stack">
+        <lightning-card title="Renewal Pipeline" icon-name="standard:loop">
+            <lightning-button slot="actions" label="View Full Pipeline" variant="base"></lightning-button>
+            <div class="slds-var-p-around_medium">
+                <template for:each={renewalPipeline} for:item="renewal">
+                    <div key={renewal.id} class="mc-renewal-item slds-grid slds-grid_align-spread slds-grid_vertical-align-center">
+                        <div class="slds-has-flexi-truncate">
+                            <p class="slds-truncate slds-text-body_small" title={renewal.name}>{renewal.name}</p>
+                            <p class="slds-text-body_small slds-text-color_weak">{renewal.tier} · {renewal.date}</p>
+                        </div>
+                        <div class="slds-no-flex slds-m-left_small">
+                            <span class="mc-renewal-amount">{renewal.amount}</span>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </lightning-card>
+
+        <lightning-card title="Upcoming Events" icon-name="standard:event">
+            <lightning-button slot="actions" label="Manage Events" variant="base"></lightning-button>
+            <div class="slds-var-p-around_medium">
+                <template for:each={upcomingEvents} for:item="event">
+                    <div key={event.id} class="mc-event-item slds-grid slds-grid_align-spread slds-grid_vertical-align-start">
+                        <div class="slds-has-flexi-truncate">
+                            <p class="slds-truncate slds-text-body_small" title={event.name}>{event.name}</p>
+                            <p class="slds-text-body_small slds-text-color_weak">{event.type} · {event.rsvps}</p>
+                        </div>
+                        <div class="slds-no-flex slds-m-left_small">
+                            <span class="mc-event-date">{event.date}</span>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </lightning-card>
+    </div>
+</template>

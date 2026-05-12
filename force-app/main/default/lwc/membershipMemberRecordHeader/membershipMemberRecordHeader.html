@@ -1,0 +1,54 @@
+<template>
+    <div class="slds-page-header slds-page-header_record-home md-record-header">
+        <div class="slds-page-header__row">
+            <div class="slds-has-flexi-truncate">
+                <div class="slds-media slds-no-space slds-grow md-record-title-media">
+                    <div class="slds-media__figure">
+                        <lightning-icon icon-name="standard:person_account" size="medium" alternative-text="Member"></lightning-icon>
+                    </div>
+                    <div class="slds-media__body">
+                        <p class="md-record-object-label">Member</p>
+                        <div class="slds-page-header__name md-record-header-name">
+                            <div class="slds-page-header__name-title">
+                                <h1>
+                                    <span class="slds-page-header__title slds-truncate md-record-title" title={derivedMember.name}>{derivedMember.name}</span>
+                                </h1>
+                            </div>
+                            <div class="slds-page-header__name-meta md-record-meta">
+                                {derivedMember.memberId} &nbsp;·&nbsp; {derivedMember.tier}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-no-flex slds-grid slds-align-top md-record-actions">
+                <div class="slds-page-header__controls">
+                    <div class="slds-page-header__control">
+                        <lightning-button-group>
+                            <lightning-button label="Edit" variant="neutral"></lightning-button>
+                            <lightning-button label="Send Renewal" variant="neutral"></lightning-button>
+                            <lightning-button-menu alternative-text="More Actions" variant="border-filled" menu-alignment="right">
+                                <lightning-menu-item label="Intervene" value="intervene"></lightning-menu-item>
+                                <lightning-menu-item label="Suspend" value="suspend"></lightning-menu-item>
+                                <lightning-menu-item label="Waive Dues" value="waive"></lightning-menu-item>
+                            </lightning-button-menu>
+                        </lightning-button-group>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slds-page-header__row slds-page-header__row_gutters md-record-detail-strip">
+            <div class="slds-page-header__col-details">
+                <ul class="slds-page-header__detail-row md-record-detail-row">
+                    <template for:each={summaryFields} for:item="field">
+                        <li key={field.label} class="slds-page-header__detail-block md-record-detail-block">
+                            <p class="slds-text-title slds-truncate md-record-detail-label">{field.label}</p>
+                            <p class="slds-truncate md-record-detail-value">{field.value}</p>
+                        </li>
+                    </template>
+                </ul>
+            </div>
+        </div>
+    </div>
+</template>

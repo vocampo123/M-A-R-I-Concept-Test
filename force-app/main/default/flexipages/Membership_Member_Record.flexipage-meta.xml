@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlexiPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentName>membershipMemberRecordHeader</componentName>
+                <identifier>c_membershipMemberRecordHeader</identifier>
+            </componentInstance>
+        </itemInstances>
+        <name>header</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentName>membershipMemberRecordTabs</componentName>
+                <identifier>c_membershipMemberRecordTabs</identifier>
+            </componentInstance>
+        </itemInstances>
+        <name>main</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentName>membershipMemberRecordSidePanel</componentName>
+                <identifier>c_membershipMemberRecordSidePanel</identifier>
+            </componentInstance>
+        </itemInstances>
+        <name>sidePanel</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <masterLabel>Membership Member Record</masterLabel>
+    <template>
+        <name>membershipMemberRecordTemplate</name>
+    </template>
+    <type>AppPage</type>
+</FlexiPage>

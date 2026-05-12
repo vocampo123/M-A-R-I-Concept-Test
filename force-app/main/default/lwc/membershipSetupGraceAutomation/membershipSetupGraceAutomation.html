@@ -1,0 +1,99 @@
+<template>
+    <div class="msp-ga">
+        <lightning-card title="Grace Period Configuration" icon-name="standard:timeslot">
+            <div class="slds-var-p-around_medium msp-ga__section">
+                <p class="msp-ga__text">
+                    Grace periods let lapsed members renew without losing their
+                    benefits. Set the program-wide defaults below; individual
+                    tiers can override these values.
+                </p>
+                <div class="msp-ga__form-grid">
+                    <lightning-input
+                        type="number"
+                        label="Default grace period (days)"
+                        min="0"
+                        max="365"
+                        value={defaultGraceDays}
+                        onchange={handleGraceDays}
+                    ></lightning-input>
+                    <lightning-input
+                        type="number"
+                        label="Max failed payment retries"
+                        min="0"
+                        max="20"
+                        value={maxFailedPaymentRetries}
+                        onchange={handleMaxRetries}
+                    ></lightning-input>
+                    <lightning-input
+                        type="number"
+                        label="Retry interval (days)"
+                        min="1"
+                        max="60"
+                        value={retryIntervalDays}
+                        onchange={handleRetryInterval}
+                    ></lightning-input>
+                </div>
+            </div>
+        </lightning-card>
+
+        <lightning-card title="Status Automation" icon-name="standard:flow">
+            <div class="slds-var-p-around_medium msp-ga__section">
+                <p class="msp-ga__text">
+                    Define when memberships automatically transition between
+                    Active, Grace, Lapsed, and Cancelled.
+                </p>
+                <div class="msp-ga__form-grid">
+                    <lightning-combobox
+                        label="Transition to Lapsed"
+                        name="transitionToLapsed"
+                        options={transitionOptions}
+                        value={transitionToLapsed}
+                        onchange={handleTransition}
+                    ></lightning-combobox>
+                    <lightning-input
+                        type="number"
+                        label="Auto-cancel after lapsed (days)"
+                        min="0"
+                        max="3650"
+                        value={autoCancelAfterLapsedDays}
+                        onchange={handleAutoCancel}
+                    ></lightning-input>
+                </div>
+                <div class="msp-ga__toggles">
+                    <lightning-input
+                        type="toggle"
+                        label="Send automated email when status changes to Grace Period"
+                        message-toggle-active="On"
+                        message-toggle-inactive="Off"
+                        checked={emailOnGrace}
+                        onchange={handleEmailGrace}
+                    ></lightning-input>
+                    <lightning-input
+                        type="toggle"
+                        label="Send automated email when status changes to Lapsed"
+                        message-toggle-active="On"
+                        message-toggle-inactive="Off"
+                        checked={emailOnLapsed}
+                        onchange={handleEmailLapsed}
+                    ></lightning-input>
+                    <lightning-input
+                        type="toggle"
+                        label="Revoke benefit access upon Lapse (not Grace Period)"
+                        message-toggle-active="On"
+                        message-toggle-inactive="Off"
+                        checked={revokeOnLapse}
+                        onchange={handleRevoke}
+                    ></lightning-input>
+                    <lightning-input
+                        type="toggle"
+                        label="Automate Active → Grace → Lapsed transitions"
+                        message-toggle-active="On"
+                        message-toggle-inactive="Off"
+                        checked={autoTransitions}
+                        onchange={handleAutoTransitions}
+                    ></lightning-input>
+                </div>
+            </div>
+        </lightning-card>
+    </div>
+</template>

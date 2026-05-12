@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Effective_End__c</fullName>
+    <label>Effective End</label>
+    <description>Date this benefit was removed from the tier. Blank means currently effective.</description>
+    <type>Date</type>
+</CustomField>

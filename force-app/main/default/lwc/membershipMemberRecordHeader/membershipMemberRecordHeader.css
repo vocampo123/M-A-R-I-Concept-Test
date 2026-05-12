@@ -1,0 +1,54 @@
+:host {
+    display: block;
+}
+
+.md-record-header {
+    background-color: var(--slds-g-color-surface-2, #f3f3f3);
+    border: 0;
+    padding: var(--slds-g-spacing-4, 1rem);
+}
+
+.md-record-title-media {
+    align-items: center;
+}
+
+.md-record-object-label,
+.md-record-meta,
+.md-record-detail-label {
+    color: var(--slds-g-color-on-surface-1, #5c5c5c);
+    font-size: var(--slds-g-font-scale-neg-1, 0.8125rem);
+    margin: 0;
+}
+
+.md-record-title {
+    color: var(--slds-g-color-on-surface-3, #03234d);
+    font-size: var(--slds-g-font-scale-5, 1.75rem);
+    font-weight: var(--slds-g-font-weight-4, 400);
+    line-height: var(--slds-g-font-line-height-6, 1.25);
+}
+
+.md-record-meta {
+    display: block;
+    margin-top: var(--slds-g-spacing-1, 0.25rem);
+}
+
+.md-record-actions {
+    padding-top: var(--slds-g-spacing-3, 0.75rem);
+}
+
+.md-record-detail-strip {
+    padding-top: var(--slds-g-spacing-6, 1.5rem);
+}
+
+.md-record-detail-row {
+    gap: var(--slds-g-spacing-12, 4rem);
+}
+
+.md-record-detail-block {
+    padding: 0;
+}
+
+.md-record-detail-value {
+    color: var(--slds-g-color-on-surface-3, #03234d);
+    font-size: var(--slds-g-font-scale-neg-1, 0.8125rem);
+}

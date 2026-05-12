@@ -1,0 +1,7 @@
+<design:component label="Membership Member Record">
+    <flexipage:template>
+        <flexipage:region name="header" defaultWidth="LARGE" />
+        <flexipage:region name="main" defaultWidth="LARGE" />
+        <flexipage:region name="sidePanel" defaultWidth="MEDIUM" />
+    </flexipage:template>
+</design:component>

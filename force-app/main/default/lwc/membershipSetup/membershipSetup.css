@@ -1,0 +1,94 @@
+:host {
+    background-color: var(--slds-g-color-surface-2, #f3f3f3);
+    display: block;
+    min-height: 100%;
+}
+
+.msc-shell {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.msc-page-header {
+    background-color: var(--slds-g-color-surface-2, #f3f3f3);
+}
+
+.msc-body {
+    background-color: var(--slds-g-color-surface-2, #f3f3f3);
+    display: grid;
+    flex: 1 1 auto;
+    gap: var(--slds-g-spacing-6, 1.5rem);
+    grid-template-columns: minmax(14rem, 17rem) 1fr;
+    padding: var(--slds-g-spacing-6, 1.5rem) var(--slds-g-spacing-6, 1.5rem)
+        var(--slds-g-spacing-8, 2rem);
+}
+
+@media (max-width: 720px) {
+    .msc-body {
+        grid-template-columns: 1fr;
+    }
+}
+
+.msc-nav {
+    background-color: var(--slds-g-color-surface-container-1, #fff);
+    border-radius: var(--slds-g-radius-border-2, 0.25rem);
+    box-shadow: var(--slds-g-shadow-1, 0 2px 2px rgba(0, 0, 0, 0.1));
+    height: fit-content;
+    padding: var(--slds-g-spacing-4, 1rem) var(--slds-g-spacing-3, 0.75rem);
+    position: sticky;
+    top: var(--slds-g-spacing-4, 1rem);
+}
+
+.msc-nav__heading {
+    color: var(--slds-g-color-on-surface-1, #5c5c5c);
+    font-size: var(--slds-g-font-scale-1, 0.75rem);
+    font-weight: var(--slds-g-font-weight-7, 700);
+    letter-spacing: 0.04em;
+    margin: 0 0 var(--slds-g-spacing-2, 0.5rem) var(--slds-g-spacing-3, 0.75rem);
+    text-transform: uppercase;
+}
+
+.msc-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--slds-g-spacing-6, 1.5rem);
+    min-width: 0;
+}
+
+.msc-footer {
+    background-color: var(--slds-g-color-surface-container-1, #fff);
+    box-shadow: var(--slds-g-shadow-1, 0 2px 2px rgba(0, 0, 0, 0.1));
+    padding: var(--slds-g-spacing-4, 1rem) var(--slds-g-spacing-6, 1.5rem);
+    position: sticky;
+    bottom: 0;
+}
+
+.msc-footer__inner {
+    align-items: center;
+    display: flex;
+    gap: var(--slds-g-spacing-4, 1rem);
+}
+
+.msc-footer__progress {
+    color: var(--slds-g-color-on-surface-1, #5c5c5c);
+    flex: 1 1 auto;
+    font-size: var(--slds-g-font-scale-1, 0.75rem);
+    font-weight: var(--slds-g-font-weight-6, 600);
+    letter-spacing: 0.04em;
+    margin: 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/*
+ * Defensive: in synthetic shadow DOM, the lightning-icon host element can be
+ * stretched by ancestor flex layouts (slds-media, slds-grid, etc.). The SDS
+ * shadow-mode rule that sets `display: inline-flex` only fires in native
+ * shadow, so we re-establish it here for the wizard scope.
+ */
+lightning-icon {
+    align-self: flex-start;
+    display: inline-flex;
+    flex: 0 0 auto;
+}

@@ -1,0 +1,7 @@
+<design:component label="Membership Command Center">
+    <flexipage:template>
+        <flexipage:region name="alerts" defaultWidth="SMALL" />
+        <flexipage:region name="primary" defaultWidth="LARGE" />
+        <flexipage:region name="watchlist" defaultWidth="MEDIUM" />
+    </flexipage:template>
+</design:component>

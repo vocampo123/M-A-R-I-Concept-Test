@@ -1,0 +1,135 @@
+<template>
+    <lightning-card title="Alerts" icon-name="standard:incident">
+        <lightning-button-icon
+            slot="actions"
+            icon-name="utility:settings"
+            variant="bare"
+            size="small"
+            alternative-text="Alert settings"
+            title="Alert settings">
+        </lightning-button-icon>
+
+        <div class="slds-var-p-horizontal_small slds-var-p-bottom_small">
+            <lightning-tabset>
+                <lightning-tab label={openTabLabel} value="open">
+                    <ul class="mc-alert-list" role="list">
+                        <li class="mc-alert-item">
+                            <div class="slds-media slds-no-space">
+                                <div class="slds-media__figure slds-media__figure_fixed-width">
+                                    <span class="mc-alert-icon mc-alert-icon_error">
+                                        <lightning-icon
+                                            icon-name="utility:warning"
+                                            size="x-small"
+                                            alternative-text="Members Requiring Attention">
+                                        </lightning-icon>
+                                    </span>
+                                </div>
+                                <div class="slds-media__body mc-alert-body">
+                                    <p class="mc-alert-title slds-truncate" title="Members Requiring Attention">
+                                        Members Requiring Attention
+                                    </p>
+                                    <p class="mc-alert-desc slds-truncate" title="Open the filtered Members list view">
+                                        Open the filtered Members list view
+                                    </p>
+                                    <p class="mc-alert-time">Updated moments ago</p>
+                                </div>
+                                <div class="slds-media__figure slds-media__figure_reverse mc-alert-action">
+                                    <lightning-button-icon
+                                        icon-name="utility:forward"
+                                        variant="border-filled"
+                                        size="x-small"
+                                        alternative-text="View Members Requiring Attention list view"
+                                        title="View Members Requiring Attention list view"
+                                        onclick={handleNavigateToListView}>
+                                    </lightning-button-icon>
+                                </div>
+                            </div>
+                        </li>
+
+                        <template for:each={openAlerts} for:item="alert">
+                            <li key={alert.id} class="mc-alert-item">
+                                <div class="slds-media slds-no-space">
+                                    <div class="slds-media__figure slds-media__figure_fixed-width">
+                                        <span class={alert.iconContainerClass}>
+                                            <lightning-icon
+                                                icon-name={alert.iconName}
+                                                size="x-small"
+                                                alternative-text={alert.title}>
+                                            </lightning-icon>
+                                        </span>
+                                    </div>
+                                    <div class="slds-media__body mc-alert-body">
+                                        <p class="mc-alert-title slds-truncate" title={alert.title}>{alert.title}</p>
+                                        <p class="mc-alert-desc slds-truncate" title={alert.description}>{alert.description}</p>
+                                        <p class="mc-alert-time">{alert.time}</p>
+                                    </div>
+                                    <div class="slds-media__figure slds-media__figure_reverse mc-alert-action">
+                                        <lightning-button-icon
+                                            icon-name="utility:check"
+                                            variant="border-filled"
+                                            size="x-small"
+                                            alternative-text="Acknowledge alert"
+                                            title="Acknowledge alert"
+                                            data-id={alert.id}
+                                            onclick={handleAcknowledge}>
+                                        </lightning-button-icon>
+                                    </div>
+                                </div>
+                            </li>
+                        </template>
+                    </ul>
+                </lightning-tab>
+
+                <lightning-tab label="Snoozed" value="snoozed">
+                    <ul class="mc-alert-list" role="list">
+                        <template for:each={snoozedAlerts} for:item="alert">
+                            <li key={alert.id} class="mc-alert-item">
+                                <div class="slds-media slds-no-space">
+                                    <div class="slds-media__figure slds-media__figure_fixed-width">
+                                        <span class={alert.iconContainerClass}>
+                                            <lightning-icon
+                                                icon-name={alert.iconName}
+                                                size="x-small"
+                                                alternative-text={alert.title}>
+                                            </lightning-icon>
+                                        </span>
+                                    </div>
+                                    <div class="slds-media__body mc-alert-body">
+                                        <p class="mc-alert-title slds-truncate" title={alert.title}>{alert.title}</p>
+                                        <p class="mc-alert-desc slds-truncate" title={alert.description}>{alert.description}</p>
+                                        <p class="mc-alert-time">{alert.time}</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </template>
+                    </ul>
+                </lightning-tab>
+
+                <lightning-tab label="History" value="history">
+                    <ul class="mc-alert-list" role="list">
+                        <template for:each={historyAlerts} for:item="alert">
+                            <li key={alert.id} class="mc-alert-item">
+                                <div class="slds-media slds-no-space">
+                                    <div class="slds-media__figure slds-media__figure_fixed-width">
+                                        <span class={alert.iconContainerClass}>
+                                            <lightning-icon
+                                                icon-name={alert.iconName}
+                                                size="x-small"
+                                                alternative-text={alert.title}>
+                                            </lightning-icon>
+                                        </span>
+                                    </div>
+                                    <div class="slds-media__body mc-alert-body">
+                                        <p class="mc-alert-title slds-truncate" title={alert.title}>{alert.title}</p>
+                                        <p class="mc-alert-desc slds-truncate" title={alert.description}>{alert.description}</p>
+                                        <p class="mc-alert-time">{alert.time}</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </template>
+                    </ul>
+                </lightning-tab>
+            </lightning-tabset>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,73 @@
+<template>
+    <div class="md-content-container">
+        <lightning-tabset class="md-record-tabs">
+            <lightning-tab label="Details" value="details">
+                <div class="md-tab-flush md-details-form">
+                    <template for:each={detailSections} for:item="section">
+                        <section key={section.title} class="md-detail-section">
+                            <div class="md-section-divider">
+                                <lightning-icon icon-name="utility:chevronright" size="xx-small" alternative-text=""></lightning-icon>
+                                <h2 class="md-section-title">{section.title}</h2>
+                            </div>
+                            <div class="md-form-section">
+                                <template for:each={section.rows} for:item="row">
+                                    <div key={row.id} class="md-field-row">
+                                        <template for:each={row.fields} for:item="field">
+                                            <div key={field.label} class="md-field-item">
+                                                <span class="md-field-label">{field.label}</span>
+                                                <span class="md-field-value">{field.value}</span>
+                                            </div>
+                                        </template>
+                                    </div>
+                                </template>
+                            </div>
+                        </section>
+                    </template>
+                </div>
+            </lightning-tab>
+
+            <lightning-tab label="Billing" value="billing">
+                <div class="slds-var-p-around_medium">
+                    <lightning-card title="Billing &amp; Payment History" icon-name="standard:billing">
+                        <div class="slds-var-p-around_medium">
+                            <lightning-datatable key-field="id" data={billingHistory} columns={billingColumns} hide-checkbox-column></lightning-datatable>
+                        </div>
+                    </lightning-card>
+                </div>
+            </lightning-tab>
+
+            <lightning-tab label="Benefits" value="benefits">
+                <div class="slds-var-p-around_medium">
+                    <lightning-card title="Benefit Detail" icon-name="standard:reward">
+                        <div class="slds-var-p-around_medium">
+                            <lightning-datatable key-field="id" data={benefits} columns={benefitColumns} hide-checkbox-column></lightning-datatable>
+                        </div>
+                    </lightning-card>
+                </div>
+            </lightning-tab>
+
+            <lightning-tab label="Related Lists" value="related">
+                <div class="slds-var-p-around_medium md-related-layout">
+                    <lightning-card class="md-related-card" title="Engagement History" icon-name="standard:opportunity">
+                        <lightning-button label="View All" variant="base" slot="actions"></lightning-button>
+                        <div class="md-related-card-body">
+                            <lightning-datatable class="md-related-table" key-field="id" data={recentActivity} columns={activityColumns} hide-checkbox-column></lightning-datatable>
+                        </div>
+                    </lightning-card>
+                    <lightning-card class="md-related-card" title="Billing History" icon-name="standard:billing">
+                        <lightning-button label="View All" variant="base" slot="actions"></lightning-button>
+                        <div class="md-related-card-body">
+                            <lightning-datatable class="md-related-table" key-field="id" data={billingHistory} columns={billingColumns} hide-checkbox-column></lightning-datatable>
+                        </div>
+                    </lightning-card>
+                    <lightning-card class="md-related-card" title="Benefits" icon-name="standard:reward">
+                        <lightning-button label="View All" variant="base" slot="actions"></lightning-button>
+                        <div class="md-related-card-body">
+                            <lightning-datatable class="md-related-table" key-field="id" data={benefits} columns={benefitColumns} hide-checkbox-column></lightning-datatable>
+                        </div>
+                    </lightning-card>
+                </div>
+            </lightning-tab>
+        </lightning-tabset>
+    </div>
+</template>

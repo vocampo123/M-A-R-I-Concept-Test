@@ -1,0 +1,8 @@
+:host {
+    display: block;
+}
+
+.slds-page-header {
+    background-color: var(--slds-g-color-surface-container-2, #f3f3f3);
+    box-shadow: none;
+}

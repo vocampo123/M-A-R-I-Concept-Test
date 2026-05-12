@@ -1,0 +1,78 @@
+<template>
+    <div class="msp-review">
+        <lightning-card title="Program Summary" icon-name="standard:program_detail">
+            <div class="slds-var-p-around_medium msp-review__section">
+                <h3 class="msp-review__name">{programName}</h3>
+                <p class="msp-review__description">{programDescription}</p>
+                <div class="msp-review__cards">
+                    <template for:each={summaryCards} for:item="card">
+                        <article key={card.id} class="msp-review__card">
+                            <lightning-icon
+                                icon-name={card.icon}
+                                size="small"
+                                alternative-text={card.label}
+                            ></lightning-icon>
+                            <p class="msp-review__card-value">{card.value}</p>
+                            <p class="msp-review__card-label">{card.label}</p>
+                            <p class="msp-review__card-detail">{card.detail}</p>
+                        </article>
+                    </template>
+                </div>
+            </div>
+        </lightning-card>
+
+        <lightning-card title="Tiers at a Glance" icon-name="standard:hierarchy">
+            <div class="slds-var-p-around_medium msp-review__section">
+                <p class="msp-review__text">
+                    Final tier configuration with pricing and FMV. Make changes
+                    by going back to <strong>Tier Definitions</strong> or
+                    <strong>Tax & FMV</strong>.
+                </p>
+                <div class="msp-review__table">
+                    <lightning-datatable
+                        key-field="id"
+                        data={tierRows}
+                        columns={tierColumns}
+                        hide-checkbox-column
+                    ></lightning-datatable>
+                </div>
+            </div>
+        </lightning-card>
+
+        <lightning-card title="Billing Configuration" icon-name="standard:product_transfer">
+            <div class="slds-var-p-around_medium msp-review__section">
+                <dl class="msp-review__list">
+                    <div class="msp-review__list-item">
+                        <dt>Payment methods</dt>
+                        <dd>{paymentMethodLabels}</dd>
+                    </div>
+                    <div class="msp-review__list-item">
+                        <dt>Tax handling</dt>
+                        <dd>{taxLabel}</dd>
+                    </div>
+                    <div class="msp-review__list-item">
+                        <dt>Fair Market Value</dt>
+                        <dd>{fmvLabel}</dd>
+                    </div>
+                    <div class="msp-review__list-item">
+                        <dt>Grace & retries</dt>
+                        <dd>{graceLabel}</dd>
+                    </div>
+                    <div class="msp-review__list-item">
+                        <dt>Revenue recognition</dt>
+                        <dd>{policyLabel}</dd>
+                    </div>
+                </dl>
+            </div>
+        </lightning-card>
+
+        <lightning-card title="Activation" icon-name="utility:check">
+            <div class="slds-var-p-around_medium msp-review__section">
+                <p class="msp-review__text">
+                    When everything looks right, click <strong>Activate Program</strong>
+                    in the footer to activate your membership program.
+                </p>
+            </div>
+        </lightning-card>
+    </div>
+</template>

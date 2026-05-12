@@ -1,0 +1,79 @@
+<template>
+    <div class="msp-tax">
+        <lightning-card title="Tax Handling" icon-name="standard:currency">
+            <div class="slds-var-p-around_medium msp-tax__section">
+                <p class="msp-tax__text">
+                    Choose how tax is calculated at checkout.
+                </p>
+                <lightning-radio-group
+                    label="Tax handling"
+                    name="taxMode"
+                    type="radio"
+                    options={taxOptions}
+                    value={taxMode}
+                    onchange={handleTaxModeChange}
+                ></lightning-radio-group>
+            </div>
+        </lightning-card>
+
+        <lightning-card title="Fair Market Value (FMV) Splitting" icon-name="standard:bundle_policy">
+            <div class="slds-var-p-around_medium msp-tax__section">
+                <p class="msp-tax__text">
+                    For nonprofit compliance, invoices must clearly separate the
+                    tax-deductible donation amount from the Fair Market Value
+                    (FMV) of benefits received. FMV is set per tier — click any
+                    FMV cell to edit it.
+                </p>
+                <div class="msp-tax__toggles">
+                    <lightning-input
+                        type="toggle"
+                        label="Enable FMV calculation on all membership invoices"
+                        message-toggle-active="On"
+                        message-toggle-inactive="Off"
+                        checked={fmvEnabled}
+                        onchange={handleFmvEnabled}
+                    ></lightning-input>
+                    <lightning-input
+                        type="toggle"
+                        label="Print FMV breakdown on member-facing invoices and receipts"
+                        message-toggle-active="On"
+                        message-toggle-inactive="Off"
+                        checked={printFmvOnInvoices}
+                        onchange={handlePrintFmv}
+                    ></lightning-input>
+                    <lightning-input
+                        type="toggle"
+                        label="Enable automated revenue recognition deferral by product type"
+                        message-toggle-active="On"
+                        message-toggle-inactive="Off"
+                        checked={autoRevenueRecognitionDeferral}
+                        onchange={handleDeferralChange}
+                    ></lightning-input>
+                </div>
+                <template lwc:if={hasTiers}>
+                    <div class="msp-tax__table">
+                        <lightning-datatable
+                            key-field="id"
+                            data={rows}
+                            columns={columns}
+                            draft-values={draftValues}
+                            onsave={handleSave}
+                            oncancel={handleCancel}
+                            hide-checkbox-column
+                        ></lightning-datatable>
+                    </div>
+                </template>
+                <template lwc:else>
+                    <div class="msp-tax__empty">
+                        <lightning-icon
+                            icon-name="utility:currency"
+                            size="small"
+                            alternative-text="No tiers"
+                        ></lightning-icon>
+                        <p>No tiers defined yet. Add tiers in the Tier Definitions phase to set FMV per tier.</p>
+                    </div>
+                </template>
+            </div>
+        </lightning-card>
+    </div>
+</template>

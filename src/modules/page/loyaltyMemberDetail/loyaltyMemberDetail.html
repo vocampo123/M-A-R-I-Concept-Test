@@ -1,0 +1,251 @@
+<template>
+    <div class="lmd-shell">
+        <ui-page-header
+            variant="record-home"
+            icon-name={profileAvatarIcon}
+            object-label={headerObjectLabel}
+            title={pageTitle}
+            meta-text={headerMetaText}>
+
+            <div slot="actions">
+                <lightning-button-group>
+                    <lightning-button label="Edit" variant="neutral"></lightning-button>
+                    <lightning-button label="Send Renewal" variant="neutral"></lightning-button>
+                    <lightning-button-menu alternative-text="More Actions" variant="border-filled" menu-alignment="right">
+                        <lightning-menu-item label="Intervene" value="intervene"></lightning-menu-item>
+                        <lightning-menu-item label="Suspend" value="suspend"></lightning-menu-item>
+                        <lightning-menu-item label="Waive Dues" value="waive"></lightning-menu-item>
+                    </lightning-button-menu>
+                </lightning-button-group>
+            </div>
+        </ui-page-header>
+
+        <div class="lmd-body">
+            <aside class="lmd-side-rail" aria-label="Member profile and related context">
+                <c-member-profile-summary
+                    name={pageTitle}
+                    subtitle={profileSubtitle}
+                    avatar-fallback-icon={profileAvatarIcon}
+                    fields={profileFields}>
+                </c-member-profile-summary>
+
+                <template lwc:if={isHousehold}>
+                    <lightning-card title="Household Roster" icon-name="standard:household">
+                        <div class="slds-var-p-around_medium">
+                            <ul class="lmd-roster-list">
+                                <template for:each={householdRoster} for:item="person">
+                                    <li key={person.id} class="lmd-roster-item">
+                                        <div class="slds-media slds-media_small">
+                                            <div class="slds-media__figure">
+                                                <lightning-icon icon-name="standard:contact" size="small" alternative-text=""></lightning-icon>
+                                            </div>
+                                            <div class="slds-media__body">
+                                                <p class="lmd-roster-name">{person.name}</p>
+                                                <p class="lmd-roster-role">{person.role}</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </template>
+                            </ul>
+                        </div>
+                        <div slot="footer" class="lmd-card-footer-link">
+                            <lightning-button label="Add Member" variant="base" icon-name="utility:add" icon-position="left"></lightning-button>
+                        </div>
+                    </lightning-card>
+                </template>
+
+                <c-member-activity-panel
+                    title="Membership Lifecycle"
+                    icon-name="standard:event"
+                    empty-message="No lifecycle events recorded."
+                    events={lifecycleEvents}>
+                </c-member-activity-panel>
+            </aside>
+
+            <main class="lmd-main" aria-label="Member detail">
+                <div class="lmd-content-container">
+                    <lightning-tabset class="lmd-record-tabs">
+                        <lightning-tab label="Detail" value="detail">
+                            <div class="lmd-detail-form-stack">
+                                <section class="lmd-detail-section">
+                                    <div class="lmd-section-divider">
+                                        <lightning-icon icon-name="utility:chevronright" size="xx-small" alternative-text=""></lightning-icon>
+                                        <h2 class="lmd-section-title">Program Member Detail</h2>
+                                    </div>
+                                    <div class="lmd-form-section">
+                                        <template for:each={programDetailRows} for:item="row">
+                                            <div key={row.id} class="lmd-field-row">
+                                                <template for:each={row.fields} for:item="field">
+                                                    <div key={field.label} class="lmd-field-item">
+                                                        <span class="lmd-field-label">{field.label}</span>
+                                                        <span class="lmd-field-value">{field.value}</span>
+                                                    </div>
+                                                </template>
+                                            </div>
+                                        </template>
+                                    </div>
+                                </section>
+
+                                <section class="lmd-detail-section">
+                                    <div class="lmd-section-divider">
+                                        <lightning-icon icon-name="utility:chevronright" size="xx-small" alternative-text=""></lightning-icon>
+                                        <h2 class="lmd-section-title">Contact Details</h2>
+                                    </div>
+                                    <div class="lmd-form-section">
+                                        <template for:each={contactDetailRows} for:item="row">
+                                            <div key={row.id} class="lmd-field-row">
+                                                <template for:each={row.fields} for:item="field">
+                                                    <div key={field.label} class="lmd-field-item">
+                                                        <span class="lmd-field-label">{field.label}</span>
+                                                        <span class="lmd-field-value">{field.value}</span>
+                                                    </div>
+                                                </template>
+                                            </div>
+                                        </template>
+                                    </div>
+                                </section>
+
+                                <section class="lmd-detail-section">
+                                    <div class="lmd-section-divider">
+                                        <lightning-icon icon-name="utility:chevronright" size="xx-small" alternative-text=""></lightning-icon>
+                                        <h2 class="lmd-section-title">Engagement Detail</h2>
+                                    </div>
+                                    <div class="lmd-form-section">
+                                        <template for:each={engagementDetailRows} for:item="row">
+                                            <div key={row.id} class="lmd-field-row">
+                                                <template for:each={row.fields} for:item="field">
+                                                    <div key={field.label} class="lmd-field-item">
+                                                        <span class="lmd-field-label">{field.label}</span>
+                                                        <span class="lmd-field-value">{field.value}</span>
+                                                    </div>
+                                                </template>
+                                            </div>
+                                        </template>
+                                    </div>
+                                </section>
+
+                                <section class="lmd-detail-section">
+                                    <div class="lmd-section-divider">
+                                        <lightning-icon icon-name="utility:chevronright" size="xx-small" alternative-text=""></lightning-icon>
+                                        <h2 class="lmd-section-title">Benefit Detail</h2>
+                                    </div>
+                                    <lightning-card class="lmd-related-card" title="Benefits" icon-name="standard:reward">
+                                        <template lwc:if={hasBenefits}>
+                                            <lightning-datatable class="lmd-related-table" key-field="id" data={benefits} columns={benefitColumns} hide-checkbox-column></lightning-datatable>
+                                        </template>
+                                        <template lwc:else>
+                                            <div class="lmd-related-card-body">
+                                                <p class="lmd-empty-state">No benefits assigned.</p>
+                                            </div>
+                                        </template>
+                                    </lightning-card>
+                                </section>
+                            </div>
+                        </lightning-tab>
+
+                        <lightning-tab label="Tier History" value="tier-history">
+                            <div class="slds-var-p-around_medium lmd-related-layout">
+                                <lightning-card class="lmd-related-card" title="Tier History" icon-name="standard:promotion_tiers">
+                                    <template lwc:if={hasTierHistory}>
+                                        <lightning-datatable class="lmd-related-table" key-field="id" data={tierHistory} columns={tierHistoryColumns} hide-checkbox-column></lightning-datatable>
+                                    </template>
+                                    <template lwc:else>
+                                        <div class="lmd-related-card-body">
+                                            <p class="lmd-empty-state">No tier history yet.</p>
+                                        </div>
+                                    </template>
+                                </lightning-card>
+                            </div>
+                        </lightning-tab>
+
+                        <lightning-tab label="Active Vouchers" value="vouchers">
+                            <div class="slds-var-p-around_medium lmd-related-layout">
+                                <lightning-card class="lmd-related-card" title="Active Vouchers" icon-name="standard:reward">
+                                    <template lwc:if={hasVouchers}>
+                                        <lightning-datatable class="lmd-related-table" key-field="id" data={vouchers} columns={voucherColumns} hide-checkbox-column></lightning-datatable>
+                                    </template>
+                                    <template lwc:else>
+                                        <div class="lmd-related-card-body">
+                                            <p class="lmd-empty-state">No active vouchers.</p>
+                                        </div>
+                                    </template>
+                                </lightning-card>
+                            </div>
+                        </lightning-tab>
+
+                        <lightning-tab label="Related Lists" value="related">
+                            <div class="slds-var-p-around_medium lmd-related-layout">
+                                <lightning-card class="lmd-related-card" title="Engagement History" icon-name="standard:opportunity">
+                                    <lightning-datatable class="lmd-related-table" key-field="id" data={recentActivity} columns={activityColumns} hide-checkbox-column></lightning-datatable>
+                                </lightning-card>
+                                <lightning-card class="lmd-related-card" title="Billing History" icon-name="standard:billing">
+                                    <lightning-datatable class="lmd-related-table" key-field="id" data={billingHistory} columns={billingColumns} hide-checkbox-column></lightning-datatable>
+                                </lightning-card>
+                            </div>
+                        </lightning-tab>
+                    </lightning-tabset>
+                </div>
+            </main>
+
+            <aside class="lmd-rail" aria-label="Renewal and recognition">
+                <lightning-card title="Renewal" icon-name="utility:rules">
+                    <div class="slds-var-p-around_medium lmd-renewal-card">
+                        <dl class="lmd-renewal-list">
+                            <div class="lmd-renewal-row">
+                                <dt class="slds-text-title">Renewal Date</dt>
+                                <dd class="lmd-renewal-value">{renewalDateFormatted}</dd>
+                            </div>
+                            <div class="lmd-renewal-row">
+                                <dt class="slds-text-title">Status</dt>
+                                <dd>
+                                    <lightning-badge label={renewalStatusBadge.label} variant={renewalStatusBadge.variant}></lightning-badge>
+                                </dd>
+                            </div>
+                            <div class="lmd-renewal-row">
+                                <dt class="slds-text-title">Annual Dues</dt>
+                                <dd class="lmd-renewal-value">{annualDuesFormatted}</dd>
+                            </div>
+                        </dl>
+                        <div class="lmd-renewal-actions">
+                            <lightning-button label="Process Renewal" variant="brand" stretch></lightning-button>
+                            <lightning-button label="Update Credit Card" stretch></lightning-button>
+                            <lightning-button label="Manual Payment" stretch></lightning-button>
+                        </div>
+                    </div>
+                </lightning-card>
+
+                <template lwc:if={hasBadges}>
+                    <lightning-card title="Recognition Badges" icon-name="standard:reward">
+                        <div class="slds-var-p-around_medium">
+                            <ul class="lmd-badge-list">
+                                <template for:each={badges} for:item="badge">
+                                    <li key={badge.id} class="lmd-badge-item">
+                                        <lightning-icon icon-name={badge.icon} size="small" alternative-text={badge.name}></lightning-icon>
+                                        <span class="lmd-badge-label">{badge.name}</span>
+                                    </li>
+                                </template>
+                            </ul>
+                        </div>
+                    </lightning-card>
+                </template>
+
+                <template lwc:if={hasPromotions}>
+                    <lightning-card title="Promotions" icon-name="standard:promotions">
+                        <lightning-button label="View All" variant="base" slot="actions"></lightning-button>
+                        <div class="slds-var-p-around_medium">
+                            <ul class="lmd-promo-list">
+                                <template for:each={promotions} for:item="promo">
+                                    <li key={promo.id} class="lmd-promo-item">
+                                        <p class="lmd-promo-name">{promo.name}</p>
+                                        <p class="lmd-promo-desc">{promo.description}</p>
+                                        <p class="lmd-promo-end">Ends {promo.endDate}</p>
+                                    </li>
+                                </template>
+                            </ul>
+                        </div>
+                    </lightning-card>
+                </template>
+            </aside>
+        </div>
+    </div>
+</template>

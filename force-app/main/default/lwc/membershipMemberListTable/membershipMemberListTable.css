@@ -1,0 +1,25 @@
+:host {
+    display: block;
+}
+
+.ml-list {
+    width: 100%;
+}
+
+.ml-table {
+    width: 100%;
+}
+
+.ml-filters {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: var(--slds-g-spacing-4, 1rem);
+    align-items: end;
+    padding: var(--slds-g-spacing-4, 1rem);
+}
+
+@media (max-width: 720px) {
+    .ml-filters {
+        grid-template-columns: 1fr;
+    }
+}

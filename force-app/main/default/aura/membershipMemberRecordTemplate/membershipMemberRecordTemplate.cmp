@@ -1,0 +1,11 @@
+<aura:component implements="lightning:appHomeTemplate" description="Membership member record app page template.">
+    <aura:attribute name="header" type="Aura.Component[]" />
+    <aura:attribute name="main" type="Aura.Component[]" />
+    <aura:attribute name="sidePanel" type="Aura.Component[]" />
+
+    <div class="mmr-template">
+        <div class="mmr-template__header">{!v.header}</div>
+        <div class="mmr-template__main">{!v.main}</div>
+        <div class="mmr-template__side">{!v.sidePanel}</div>
+    </div>
+</aura:component>

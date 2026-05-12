@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Console app for membership operations and command center workflows.</description>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>true</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <label>Membership Operations</label>
+    <navType>Console</navType>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Membership_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Membership__c</pageOrSobjectType>
+        <profile>Admin</profile>
+        <type>Flexipage</type>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Membership_Tier_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>LoyaltyTier</pageOrSobjectType>
+        <profile>Admin</profile>
+        <type>Flexipage</type>
+    </profileActionOverrides>
+    <tabs>standard-home</tabs>
+    <tabs>Membership_Setup</tabs>
+    <tabs>Membership_Command_Center</tabs>
+    <tabs>Membership__c</tabs>
+    <tabs>standard-LoyaltyTier</tabs>
+    <tabs>standard-Benefit</tabs>
+    <tabs>standard-Promotion</tabs>
+    <tabs>standard-LoyaltyProgramMember</tabs>
+    <tabs>standard-LoyaltyProgram</tabs>
+    <uiType>Lightning</uiType>
+</CustomApplication>

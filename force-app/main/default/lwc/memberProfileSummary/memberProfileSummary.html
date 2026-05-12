@@ -1,0 +1,39 @@
+<template>
+    <lightning-card class="mps-card">
+        <div class="slds-var-p-around_medium mps-body">
+            <header class="mps-header">
+                <lightning-avatar
+                    class="mps-avatar"
+                    src={avatarUrl}
+                    initials={initials}
+                    fallback-icon-name={avatarFallbackIcon}
+                    alternative-text={name}
+                    size="medium">
+                </lightning-avatar>
+                <div class="mps-identity">
+                    <p class="mps-name">{name}</p>
+                    <template lwc:if={subtitle}>
+                        <p class="mps-subtitle">{subtitle}</p>
+                    </template>
+                </div>
+            </header>
+            <template lwc:if={hasFields}>
+                <ul class="mps-field-list" role="list">
+                    <template for:each={displayFields} for:item="field">
+                        <li key={field.id} class="mps-field-row">
+                            <template lwc:if={field.hasIcon}>
+                                <span class="mps-field-icon" aria-hidden="true">
+                                    <lightning-icon icon-name={field.icon} size="x-small" alternative-text=""></lightning-icon>
+                                </span>
+                            </template>
+                            <p class="mps-field-text">
+                                <span class="mps-field-label">{field.label}</span>
+                                <strong class="mps-field-value">{field.value}</strong>
+                            </p>
+                        </li>
+                    </template>
+                </ul>
+            </template>
+        </div>
+    </lightning-card>
+</template>

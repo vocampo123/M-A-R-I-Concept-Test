@@ -1,0 +1,26 @@
+<template>
+    <lightning-card title="Renewal &amp; Billing Snapshot" icon-name="standard:billing">
+        <lightning-button label="Send Renewal" variant="brand" slot="actions"></lightning-button>
+        <div class="slds-var-p-around_medium renewal-panel">
+            <div class="slds-grid slds-wrap slds-gutters_small">
+                <template for:each={metrics} for:item="metric">
+                    <div key={metric.label} class="slds-col slds-size_1-of-1 slds-medium-size_1-of-4">
+                        <div class="metric">
+                            <p class="slds-text-title">{metric.label}</p>
+                            <p class="metric__value">{metric.value}</p>
+                            <p class="metric__hint">{metric.hint}</p>
+                        </div>
+                    </div>
+                </template>
+            </div>
+
+            <div class="renewal-panel__actions">
+                <lightning-button-group>
+                    <lightning-button label="Update Payment"></lightning-button>
+                    <lightning-button label="Waive Dues"></lightning-button>
+                    <lightning-button label="Process Renewal"></lightning-button>
+                </lightning-button-group>
+            </div>
+        </div>
+    </lightning-card>
+</template>

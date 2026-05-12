@@ -1,0 +1,48 @@
+:host {
+    display: block;
+}
+
+.mc-shell {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--slds-g-color-surface-2, #f3f3f3);
+}
+
+.mc-body {
+    display: flex;
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.mc-rail {
+    flex: 0 0 20rem;
+    overflow-y: auto;
+    padding: var(--slds-g-spacing-4, 1rem) 0 var(--slds-g-spacing-4, 1rem) var(--slds-g-spacing-4, 1rem);
+}
+
+.mc-content {
+    flex: 1 1 0;
+    min-width: 0;
+    overflow-y: auto;
+    padding: var(--slds-g-spacing-4, 1rem);
+}
+
+.mc-header {
+    margin-bottom: var(--slds-g-spacing-4, 1rem);
+}
+
+.mc-content-row {
+    display: flex;
+    gap: var(--slds-g-spacing-4, 1rem);
+    min-width: 0;
+}
+
+.mc-primary {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.mc-watchlist {
+    flex: 0 0 22rem;
+}

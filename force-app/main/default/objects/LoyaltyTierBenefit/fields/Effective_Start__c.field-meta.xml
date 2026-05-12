@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Effective_Start__c</fullName>
+    <label>Effective Start</label>
+    <description>Date this benefit became part of the tier. Used for benefit versioning when tier benefits change over time.</description>
+    <type>Date</type>
+</CustomField>

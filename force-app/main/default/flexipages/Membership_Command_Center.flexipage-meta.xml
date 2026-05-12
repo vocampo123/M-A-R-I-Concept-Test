@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlexiPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <!--
+        Alerts region temporarily removed — restore by re-adding:
+        <flexiPageRegions>
+            <itemInstances>
+                <componentInstance>
+                    <componentName>membershipCommandCenterAlerts</componentName>
+                    <identifier>c_membershipCommandCenterAlerts</identifier>
+                </componentInstance>
+            </itemInstances>
+            <name>alerts</name>
+            <type>Region</type>
+        </flexiPageRegions>
+    -->
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentName>membershipCommandCenterHeader</componentName>
+                <identifier>c_membershipCommandCenterHeader</identifier>
+            </componentInstance>
+        </itemInstances>
+        <name>header</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentName>membershipCommandCenterPrimary</componentName>
+                <identifier>c_membershipCommandCenterPrimary</identifier>
+            </componentInstance>
+        </itemInstances>
+        <name>primaryContent</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentName>membershipCommandCenterWatchlist</componentName>
+                <identifier>c_membershipCommandCenterWatchlist</identifier>
+            </componentInstance>
+        </itemInstances>
+        <name>watchlist</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <masterLabel>Membership Command Center</masterLabel>
+    <template>
+        <name>membershipCommandCenterAlignedTemplate</name>
+    </template>
+    <type>AppPage</type>
+</FlexiPage>

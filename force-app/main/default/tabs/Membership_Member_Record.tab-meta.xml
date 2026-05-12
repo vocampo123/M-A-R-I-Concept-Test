@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Lightning page tab for a membership member record prototype.</description>
+    <flexiPage>Membership_Member_Record</flexiPage>
+    <label>Member Record</label>
+    <motif>Custom48: Trophy</motif>
+</CustomTab>

@@ -1,0 +1,252 @@
+:host {
+    display: block;
+}
+
+.lmd-shell {
+    background-color: var(--slds-g-color-surface-2, #f3f3f3);
+    display: flex;
+    flex-direction: column;
+}
+
+.lmd-shell lightning-card {
+    --slds-c-card-radius-border: var(--slds-g-radius-border-3, 0.75rem);
+    background-color: var(--slds-g-color-surface-container-1, #fff);
+    border-radius: var(--slds-g-radius-border-3, 0.75rem);
+    box-shadow: var(--slds-g-shadow-1, 0 2px 2px rgba(0, 0, 0, 0.1));
+    display: block;
+}
+
+.lmd-body {
+    align-items: flex-start;
+    display: grid;
+    gap: var(--slds-g-spacing-3, 0.75rem);
+    grid-template-columns: minmax(0, 18rem) minmax(0, 1fr) minmax(0, 22rem);
+    padding: var(--slds-g-spacing-4, 1rem);
+}
+
+.lmd-side-rail,
+.lmd-main,
+.lmd-rail {
+    display: flex;
+    flex-direction: column;
+    gap: var(--slds-g-spacing-3, 0.75rem);
+    min-width: 0;
+}
+
+.lmd-content-container {
+    background-color: var(--slds-g-color-surface-1, #fff);
+    border-radius: var(--slds-g-radius-border-4, 1.25rem);
+    box-shadow: var(--slds-g-shadow-1, 0 2px 2px rgba(0, 0, 0, 0.1));
+    overflow: clip;
+}
+
+.lmd-record-tabs {
+    display: block;
+}
+
+.lmd-detail-form-stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--slds-g-spacing-6, 1.5rem);
+    padding: var(--slds-g-spacing-3, 0.75rem) var(--slds-g-spacing-4, 1rem) var(--slds-g-spacing-4, 1rem);
+}
+
+.lmd-detail-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.lmd-section-divider {
+    align-items: center;
+    background-color: var(--slds-g-color-surface-container-2, #f3f3f3);
+    border-radius: var(--slds-g-radius-border-2, 0.25rem);
+    display: flex;
+    gap: var(--slds-g-spacing-2, 0.5rem);
+    margin-block-end: var(--slds-g-spacing-3, 0.75rem);
+    min-height: var(--slds-g-sizing-8, 1.5rem);
+    padding: 0 var(--slds-g-spacing-3, 0.75rem);
+}
+
+.lmd-section-title {
+    color: var(--slds-g-color-on-surface-3, #03234d);
+    font-size: var(--slds-g-font-scale-base, 0.875rem);
+    font-weight: var(--slds-g-font-weight-5, 700);
+    line-height: var(--slds-g-font-line-height-3, 1.375);
+    margin: 0;
+}
+
+.lmd-form-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.lmd-field-row {
+    column-gap: var(--slds-g-spacing-8, 2rem);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.lmd-field-item {
+    border-bottom: var(--slds-g-sizing-border-1, 1px) solid var(--slds-g-color-border-1, #c9c9c9);
+    display: flex;
+    flex-direction: column;
+    gap: var(--slds-g-spacing-1, 0.25rem);
+    padding: var(--slds-g-spacing-1, 0.25rem) 0 var(--slds-g-spacing-2, 0.5rem);
+}
+
+.lmd-field-label {
+    color: var(--slds-g-color-on-surface-1, #5c5c5c);
+    font-size: var(--slds-g-font-scale-neg-1, 0.8125rem);
+}
+
+.lmd-field-value {
+    color: var(--slds-g-color-on-surface-3, #03234d);
+    font-size: var(--slds-g-font-scale-base, 0.875rem);
+}
+
+.lmd-related-layout {
+    display: flex;
+    flex-direction: column;
+    gap: var(--slds-g-spacing-3, 0.75rem);
+}
+
+.lmd-related-card-body {
+    padding: var(--slds-g-spacing-4, 1rem);
+}
+
+.lmd-related-table {
+    --_slds-c-datatable-color-border: transparent;
+    --_slds-c-datatable-radius-border: 0;
+    display: block;
+}
+
+.lmd-empty-state {
+    color: var(--slds-g-color-on-surface-1, #5c5c5c);
+    font-size: var(--slds-g-font-scale-neg-1, 0.8125rem);
+    margin: 0;
+}
+
+.lmd-badge-list,
+.lmd-promo-list,
+.lmd-roster-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--slds-g-spacing-3, 0.75rem);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.lmd-promo-item,
+.lmd-roster-item {
+    border-bottom: var(--slds-g-sizing-border-1, 1px) solid var(--slds-g-color-border-1, #c9c9c9);
+    padding-block-end: var(--slds-g-spacing-3, 0.75rem);
+}
+
+.lmd-promo-list .lmd-promo-item:last-child,
+.lmd-roster-list .lmd-roster-item:last-child {
+    border-bottom: none;
+    padding-block-end: 0;
+}
+
+.lmd-promo-name,
+.lmd-roster-name {
+    color: var(--slds-g-color-on-surface-3, #03234d);
+    font-size: var(--slds-g-font-scale-base, 0.875rem);
+    font-weight: var(--slds-g-font-weight-5, 700);
+    margin: 0;
+}
+
+.lmd-promo-desc,
+.lmd-roster-role {
+    color: var(--slds-g-color-on-surface-2, #2e2e2e);
+    font-size: var(--slds-g-font-scale-neg-1, 0.8125rem);
+    margin: 0;
+}
+
+.lmd-promo-end {
+    color: var(--slds-g-color-on-surface-1, #5c5c5c);
+    font-size: var(--slds-g-font-scale-neg-2, 0.75rem);
+    margin: 0;
+}
+
+.lmd-card-footer-link {
+    display: flex;
+    justify-content: center;
+    padding-block: var(--slds-g-spacing-2, 0.5rem);
+}
+
+.lmd-renewal-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--slds-g-spacing-4, 1rem);
+}
+
+.lmd-renewal-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--slds-g-spacing-2, 0.5rem);
+    margin: 0;
+}
+
+.lmd-renewal-row {
+    align-items: center;
+    border-bottom: var(--slds-g-sizing-border-1, 1px) solid var(--slds-g-color-border-1, #c9c9c9);
+    display: flex;
+    justify-content: space-between;
+    padding-block: var(--slds-g-spacing-2, 0.5rem);
+}
+
+.lmd-renewal-list .lmd-renewal-row:last-child {
+    border-bottom: none;
+}
+
+.lmd-renewal-value {
+    color: var(--slds-g-color-on-surface-3, #03234d);
+    font-size: var(--slds-g-font-scale-base, 0.875rem);
+    font-weight: var(--slds-g-font-weight-5, 700);
+    margin: 0;
+}
+
+.lmd-renewal-actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--slds-g-spacing-2, 0.5rem);
+}
+
+.lmd-badge-item {
+    align-items: center;
+    display: flex;
+    gap: var(--slds-g-spacing-2, 0.5rem);
+}
+
+.lmd-badge-label {
+    color: var(--slds-g-color-on-surface-3, #03234d);
+    font-size: var(--slds-g-font-scale-neg-1, 0.8125rem);
+}
+
+@media (max-width: 90rem) {
+    .lmd-body {
+        grid-template-columns: minmax(0, 18rem) minmax(0, 1fr);
+    }
+
+    .lmd-rail {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    }
+}
+
+@media (max-width: 64rem) {
+    .lmd-body {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .lmd-side-rail {
+        grid-column: 1 / -1;
+    }
+
+    .lmd-rail {
+        display: flex;
+    }
+}

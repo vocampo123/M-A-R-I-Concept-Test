@@ -1,0 +1,112 @@
+<template>
+    <div class="slds-page-header slds-page-header_object-home ml-page-header">
+
+        <!-- Row 1: object icon + breadcrumb-style label + title + primary action -->
+        <div class="slds-page-header__row">
+            <div class="slds-has-flexi-truncate">
+                <div class="slds-media slds-no-space slds-grow">
+                    <div class="slds-media__figure">
+                        <lightning-icon icon-name="standard:campaign_members" size="large" alternative-text="Members"></lightning-icon>
+                    </div>
+                    <div class="slds-media__body">
+                        <div class="slds-page-header__name">
+                            <div class="slds-page-header__name-title">
+                                <h1>
+                                    <span class="slds-text-title slds-truncate slds-m-right_x-small" title="Members">Members</span>
+                                    <span class="slds-page-header__title slds-truncate" title="All Members">All Members</span>
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-no-flex slds-grid slds-align-top">
+                <div class="slds-page-header__controls">
+                    <div class="slds-page-header__control">
+                        <lightning-button label="New Member" variant="brand"></lightning-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Row 2: meta text + search + list-view controls -->
+        <div class="slds-page-header__row">
+            <div class="slds-has-flexi-truncate slds-grid slds-grid_vertical-align-center">
+                <p class="slds-page-header__meta-text slds-truncate">10 items&nbsp;&middot;&nbsp;Sorted by Name</p>
+            </div>
+            <div class="slds-no-flex slds-grid slds-align-top ml-list-controls">
+                <div class="slds-page-header__controls">
+                    <div class="slds-page-header__control ml-list-controls__search">
+                        <lightning-input
+                            type="search"
+                            label="Search this list..."
+                            variant="label-hidden"
+                            placeholder="Search this list..."
+                            class="slds-container_x-small">
+                        </lightning-input>
+                    </div>
+                    <div class="slds-page-header__control">
+                        <lightning-button-menu
+                            alternative-text="List view controls"
+                            title="List view controls"
+                            icon-name="utility:settings"
+                            menu-alignment="right"
+                            variant="border-filled">
+                            <lightning-menu-item label="New" value="new"></lightning-menu-item>
+                            <lightning-menu-item label="Clone" value="clone"></lightning-menu-item>
+                            <lightning-menu-item label="Rename" value="rename"></lightning-menu-item>
+                            <lightning-menu-item label="Sharing Settings" value="sharing"></lightning-menu-item>
+                            <lightning-menu-item label="Edit List Filters" value="filters"></lightning-menu-item>
+                            <lightning-menu-item label="Select Fields to Display" value="fields"></lightning-menu-item>
+                        </lightning-button-menu>
+                    </div>
+                    <div class="slds-page-header__control">
+                        <lightning-button-menu
+                            alternative-text="Display as"
+                            title="Display as"
+                            icon-name="utility:table"
+                            menu-alignment="right"
+                            variant="border-filled">
+                            <lightning-menu-item label="Table" value="table" prefix-icon-name="utility:table"></lightning-menu-item>
+                            <lightning-menu-item label="Kanban" value="kanban" prefix-icon-name="utility:kanban"></lightning-menu-item>
+                            <lightning-menu-item label="Split View" value="split" prefix-icon-name="utility:layout"></lightning-menu-item>
+                        </lightning-button-menu>
+                    </div>
+                    <div class="slds-page-header__control">
+                        <lightning-button-icon
+                            alternative-text="Edit"
+                            title="Edit"
+                            icon-name="utility:edit"
+                            variant="border-filled">
+                        </lightning-button-icon>
+                    </div>
+                    <div class="slds-page-header__control">
+                        <lightning-button-icon
+                            alternative-text="Refresh"
+                            title="Refresh"
+                            icon-name="utility:refresh"
+                            variant="border-filled">
+                        </lightning-button-icon>
+                    </div>
+                    <div class="slds-page-header__control">
+                        <lightning-button-group>
+                            <lightning-button-icon
+                                alternative-text="Charts"
+                                title="Charts"
+                                icon-name="utility:chart"
+                                variant="border-filled">
+                            </lightning-button-icon>
+                            <lightning-button-icon
+                                alternative-text="Filters"
+                                title="Filters"
+                                icon-name="utility:filterList"
+                                variant="border-filled">
+                            </lightning-button-icon>
+                        </lightning-button-group>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</template>

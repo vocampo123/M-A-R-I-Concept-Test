@@ -1,0 +1,29 @@
+:host {
+    display: block;
+}
+
+.msp-pm {
+    display: flex;
+    flex-direction: column;
+    gap: var(--slds-g-spacing-6, 1.5rem);
+}
+
+.msp-pm__section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--slds-g-spacing-4, 1rem);
+}
+
+.msp-pm__text {
+    color: var(--slds-g-color-on-surface-2, #2e2e2e);
+    font-size: var(--slds-g-font-scale-base, 0.8125rem);
+    line-height: var(--slds-g-font-line-height-4, 1.5);
+    margin: 0;
+    max-width: 80ch;
+}
+
+.msp-pm__toggles {
+    display: flex;
+    flex-direction: column;
+    gap: var(--slds-g-spacing-3, 0.75rem);
+}

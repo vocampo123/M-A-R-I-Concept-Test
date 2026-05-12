@@ -1,0 +1,29 @@
+<template>
+    <div class="mc-shell">
+        <div class="mc-body">
+            <!--
+                Alerts rail temporarily hidden — uncomment to restore.
+                The c-membership-command-center-alerts LWC bundle is unchanged.
+            <aside class="mc-rail" aria-label="Membership Alerts">
+                <c-membership-command-center-alerts></c-membership-command-center-alerts>
+            </aside>
+            -->
+
+            <div class="mc-content">
+                <div class="mc-header">
+                    <c-membership-command-center-header></c-membership-command-center-header>
+                </div>
+
+                <div class="mc-content-row">
+                    <main class="mc-primary" aria-label="Primary work area">
+                        <c-membership-command-center-primary></c-membership-command-center-primary>
+                    </main>
+
+                    <aside class="mc-watchlist" aria-label="Watchlist">
+                        <c-membership-command-center-watchlist></c-membership-command-center-watchlist>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

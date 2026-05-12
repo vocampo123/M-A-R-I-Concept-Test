@@ -1,0 +1,44 @@
+:host {
+    display: block;
+}
+
+.msp-tax {
+    display: flex;
+    flex-direction: column;
+    gap: var(--slds-g-spacing-6, 1.5rem);
+}
+
+.msp-tax__section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--slds-g-spacing-4, 1rem);
+}
+
+.msp-tax__text {
+    color: var(--slds-g-color-on-surface-2, #2e2e2e);
+    font-size: var(--slds-g-font-scale-base, 0.8125rem);
+    line-height: var(--slds-g-font-line-height-4, 1.5);
+    margin: 0;
+    max-width: 80ch;
+}
+
+.msp-tax__table {
+    display: block;
+}
+
+.msp-tax__toggles {
+    display: flex;
+    flex-direction: column;
+    gap: var(--slds-g-spacing-3, 0.75rem);
+}
+
+.msp-tax__empty {
+    align-items: center;
+    color: var(--slds-g-color-on-surface-2, #2e2e2e);
+    display: flex;
+    flex-direction: column;
+    font-size: var(--slds-g-font-scale-base, 0.8125rem);
+    gap: var(--slds-g-spacing-2, 0.5rem);
+    padding: var(--slds-g-spacing-6, 1.5rem) 0;
+    text-align: center;
+}

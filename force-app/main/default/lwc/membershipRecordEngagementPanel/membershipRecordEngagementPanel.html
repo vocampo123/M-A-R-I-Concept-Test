@@ -1,0 +1,49 @@
+<template>
+    <lightning-card title="Engagement &amp; Loyalty Context" icon-name="standard:insights">
+        <div class="slds-var-p-around_medium engagement-panel">
+            <div class="slds-grid slds-wrap slds-gutters_small">
+                <template for:each={signals} for:item="signal">
+                    <div key={signal.label} class="slds-col slds-size_1-of-1 slds-medium-size_1-of-4">
+                        <div class="signal">
+                            <p class="slds-text-title">{signal.label}</p>
+                            <p class="signal__value">{signal.value}</p>
+                        </div>
+                    </div>
+                </template>
+            </div>
+
+            <lightning-tabset>
+                <lightning-tab label="Activity">
+                    <div class="slds-var-p-top_medium">
+                        <lightning-datatable
+                            key-field="id"
+                            data={activity}
+                            columns={activityColumns}
+                            hide-checkbox-column>
+                        </lightning-datatable>
+                    </div>
+                </lightning-tab>
+                <lightning-tab label="Household">
+                    <div class="slds-var-p-top_medium">
+                        <lightning-datatable
+                            key-field="id"
+                            data={household}
+                            columns={householdColumns}
+                            hide-checkbox-column>
+                        </lightning-datatable>
+                    </div>
+                </lightning-tab>
+                <lightning-tab label="Giving &amp; Volunteer">
+                    <div class="slds-var-p-top_medium">
+                        <lightning-datatable
+                            key-field="id"
+                            data={supporterHistory}
+                            columns={supporterColumns}
+                            hide-checkbox-column>
+                        </lightning-datatable>
+                    </div>
+                </lightning-tab>
+            </lightning-tabset>
+        </div>
+    </lightning-card>
+</template>

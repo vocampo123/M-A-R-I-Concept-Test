@@ -1,0 +1,61 @@
+<template>
+    <lightning-card title="Tier-Benefit Mapping" icon-name="standard:relationship">
+        <div class="slds-var-p-around_medium msp-tbm__body">
+            <p class="msp-tbm__text">
+                Choose which benefits are included in each tier. Use the
+                checkboxes to enable a benefit for a tier; per-tier caps and
+                effective dates can be edited on the tier record after setup.
+            </p>
+            <template lwc:if={hasData}>
+                <div class="msp-tbm__table-wrap">
+                    <table class="msp-tbm__table" role="grid">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="msp-tbm__header msp-tbm__header_first">Benefit</th>
+                                <template for:each={headerCells} for:item="h">
+                                    <th key={h.id} scope="col" class="msp-tbm__header">
+                                        <span class="msp-tbm__header-name">{h.name}</span>
+                                        <span class="msp-tbm__header-type">{h.type}</span>
+                                    </th>
+                                </template>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template for:each={rows} for:item="row">
+                                <tr key={row.benefitId}>
+                                    <th scope="row" class="msp-tbm__row-label">
+                                        <span class="msp-tbm__row-name">{row.benefitName}</span>
+                                        <span class="msp-tbm__row-type">{row.benefitType}</span>
+                                    </th>
+                                    <template for:each={row.cells} for:item="cell">
+                                        <td key={cell.key} class={cell.cellClass}>
+                                            <lightning-input
+                                                type="checkbox"
+                                                label={row.benefitName}
+                                                variant="label-hidden"
+                                                checked={cell.included}
+                                                data-tier={cell.tierId}
+                                                data-benefit={cell.benefitId}
+                                                onchange={handleToggle}
+                                            ></lightning-input>
+                                        </td>
+                                    </template>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </div>
+            </template>
+            <template lwc:else>
+                <div class="msp-tbm__empty">
+                    <lightning-icon
+                        icon-name="utility:relationship"
+                        size="small"
+                        alternative-text="No data"
+                    ></lightning-icon>
+                    <p>Add at least one tier and one benefit to map them together.</p>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

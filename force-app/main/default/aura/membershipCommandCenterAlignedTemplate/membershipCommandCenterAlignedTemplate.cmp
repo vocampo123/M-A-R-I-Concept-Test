@@ -1,0 +1,24 @@
+<aura:component implements="lightning:appHomeTemplate" description="Membership Command Center app page template with aligned content rows.">
+    <aura:attribute name="alerts" type="Aura.Component[]" />
+    <aura:attribute name="header" type="Aura.Component[]" />
+    <aura:attribute name="primaryContent" type="Aura.Component[]" />
+    <aura:attribute name="watchlist" type="Aura.Component[]" />
+
+    <div class="mcc-template">
+        <div class="mcc-template__alerts">
+            {!v.alerts}
+        </div>
+
+        <div class="mcc-template__header">
+            {!v.header}
+        </div>
+
+        <div class="mcc-template__primary">
+            {!v.primaryContent}
+        </div>
+
+        <div class="mcc-template__watchlist">
+            {!v.watchlist}
+        </div>
+    </div>
+</aura:component>

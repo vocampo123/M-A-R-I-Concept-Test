@@ -1,0 +1,181 @@
+:host {
+    display: block;
+}
+
+.mc-primary-stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--slds-g-spacing-4, 1rem);
+}
+
+.mc-digest {
+    align-items: flex-start;
+    background-color: var(--slds-g-color-surface-container-1, #fff);
+    border-left: var(--slds-g-sizing-border-4, 4px) solid var(--slds-g-color-accent-2, #0250d9);
+    border-radius: var(--slds-g-radius-border-2, 0.25rem);
+    box-shadow: var(--slds-g-shadow-1, 0 2px 2px rgba(0, 0, 0, 0.1));
+    display: flex;
+    gap: var(--slds-g-spacing-3, 0.75rem);
+    padding: var(--slds-g-spacing-4, 1rem);
+}
+
+.mc-digest__icon {
+    flex-shrink: 0;
+}
+
+.mc-digest__body {
+    min-width: 0;
+}
+
+.mc-digest__heading {
+    color: var(--slds-g-color-on-surface-3, #03234d);
+    font-size: var(--slds-g-font-scale-base, 0.8125rem);
+    font-weight: var(--slds-g-font-weight-7, 700);
+    margin: 0 0 var(--slds-g-spacing-1, 0.25rem);
+}
+
+.mc-digest__text {
+    color: var(--slds-g-color-on-surface-2, #2e2e2e);
+    font-size: var(--slds-g-font-scale-base, 0.8125rem);
+    line-height: var(--slds-g-font-line-height-4, 1.5);
+    margin: 0;
+}
+
+.mc-kpi {
+    background-color: var(--slds-g-color-surface-container-1, #fff);
+    border-radius: var(--slds-g-radius-border-2, 0.25rem);
+    box-shadow: var(--slds-g-shadow-1, 0 2px 2px rgba(0, 0, 0, 0.1));
+    box-sizing: border-box;
+    padding: var(--slds-g-spacing-4, 1rem);
+}
+
+.mc-kpi__header {
+    margin-bottom: var(--slds-g-spacing-2, 0.5rem);
+}
+
+.mc-kpi__label {
+    color: var(--slds-g-color-on-surface-1, #5c5c5c);
+    font-size: var(--slds-g-font-scale-base, 0.8125rem);
+}
+
+.mc-kpi__icon {
+    color: var(--slds-g-color-on-surface-1, #5c5c5c);
+}
+
+.mc-kpi__value {
+    color: var(--slds-g-color-on-surface-3, #03234d);
+    font-size: var(--slds-g-font-scale-6, 1.5rem);
+    font-weight: var(--slds-g-font-weight-7, 700);
+    line-height: var(--slds-g-font-line-height-2, 1.25);
+    margin: 0 0 var(--slds-g-spacing-1, 0.25rem);
+}
+
+.mc-kpi__trend {
+    align-items: center;
+    display: flex;
+    font-size: var(--slds-g-font-scale-1, 0.75rem);
+    font-weight: var(--slds-g-font-weight-6, 600);
+    gap: var(--slds-g-spacing-1, 0.25rem);
+    line-height: var(--slds-g-font-line-height-3, 1.375);
+    margin: 0;
+}
+
+.mc-kpi__trend-label {
+    color: var(--slds-g-color-on-surface-1, #5c5c5c);
+    font-weight: var(--slds-g-font-weight-4, 400);
+}
+
+.mc-kpi__trend_positive {
+    color: var(--slds-g-color-success-1, #056764);
+}
+
+.mc-kpi__trend_negative {
+    color: var(--slds-g-color-error-1, #b60554);
+}
+
+.mc-kpi__trend_warning {
+    color: var(--slds-g-color-warning-1, #8c4b02);
+}
+
+.mc-pair__col {
+    display: flex;
+}
+
+.mc-pair__col > lightning-card {
+    flex: 1 1 auto;
+}
+
+/*
+ * Members-by-Tier (3 rows) and Benefit Utilization (5 rows) live in the same
+ * row and must read as visually equal. lightning-card has no public sizing-
+ * height hook and synthetic shadow blocks styling the inner [part='card']
+ * article, so we set a min-height on the slotted body wrapper. That pushes
+ * each card body to a consistent floor; the article above it grows to match
+ * and both cards land at the same outer height. The value preserves the prior
+ * card height so the command center grid does not reflow (no SLDS sizing hook
+ * lands on this exact step).
+ */
+.mc-list-card__body {
+    min-height: 16.5rem;
+}
+
+.mc-tier-row,
+.mc-benefit-row {
+    margin-bottom: var(--slds-g-spacing-3, 0.75rem);
+}
+
+.mc-tier-row:last-child,
+.mc-benefit-row:last-child {
+    margin-bottom: 0;
+}
+
+.mc-risk-tile {
+    border-radius: var(--slds-g-radius-border-2, 0.25rem);
+    margin-bottom: var(--slds-g-spacing-2, 0.5rem);
+    padding: var(--slds-g-spacing-3, 0.75rem);
+    text-align: center;
+}
+
+.mc-risk-tile__count {
+    font-size: var(--slds-g-font-scale-6, 1.5rem);
+    font-weight: var(--slds-g-font-weight-7, 700);
+    line-height: var(--slds-g-font-line-height-2, 1.25);
+    margin: 0 0 var(--slds-g-spacing-1, 0.25rem);
+}
+
+.mc-risk-tile__label {
+    font-size: var(--slds-g-font-scale-1, 0.75rem);
+    font-weight: var(--slds-g-font-weight-5, 500);
+    line-height: var(--slds-g-font-line-height-3, 1.375);
+    margin: 0;
+}
+
+.mc-risk-tile_critical {
+    background-color: var(--slds-g-color-error-container-1, #fddde3);
+    color: var(--slds-g-color-error-1, #b60554);
+}
+
+.mc-risk-tile_high {
+    background-color: var(--slds-g-color-warning-container-1, #f9e3b6);
+    color: var(--slds-g-color-warning-1, #8c4b02);
+}
+
+.mc-risk-tile_medium {
+    background-color: var(--slds-g-color-surface-2, #f3f3f3);
+    border: var(--slds-g-sizing-border-1, 1px) solid var(--slds-g-color-border-1, #c9c9c9);
+    color: var(--slds-g-color-on-surface-2, #2e2e2e);
+}
+
+.mc-risk-tile_low {
+    background-color: var(--slds-g-color-surface-container-1, #fff);
+    border: var(--slds-g-sizing-border-1, 1px) solid var(--slds-g-color-border-1, #c9c9c9);
+    color: var(--slds-g-color-on-surface-2, #2e2e2e);
+}
+
+.mc-revenue-amount {
+    color: var(--slds-g-color-on-surface-3, #03234d);
+    font-size: var(--slds-g-font-scale-6, 1.5rem);
+    font-weight: var(--slds-g-font-weight-7, 700);
+    line-height: var(--slds-g-font-line-height-2, 1.25);
+    margin: 0;
+}

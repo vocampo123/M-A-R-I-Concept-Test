@@ -1,0 +1,82 @@
+:host {
+    display: block;
+}
+
+.msp-tbm__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--slds-g-spacing-4, 1rem);
+}
+
+.msp-tbm__text {
+    color: var(--slds-g-color-on-surface-2, #2e2e2e);
+    font-size: var(--slds-g-font-scale-base, 0.8125rem);
+    line-height: var(--slds-g-font-line-height-4, 1.5);
+    margin: 0;
+    max-width: 80ch;
+}
+
+.msp-tbm__table-wrap {
+    overflow-x: auto;
+}
+
+.msp-tbm__table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.msp-tbm__header,
+.msp-tbm__row-label {
+    background-color: var(--slds-g-color-surface-2, #f3f3f3);
+    border-bottom: 1px solid var(--slds-g-color-border-base-1, #e5e5e5);
+    color: var(--slds-g-color-on-surface-2, #2e2e2e);
+    font-size: var(--slds-g-font-scale-base, 0.8125rem);
+    padding: var(--slds-g-spacing-3, 0.75rem);
+    text-align: center;
+    vertical-align: middle;
+}
+
+.msp-tbm__header_first {
+    text-align: left;
+}
+
+.msp-tbm__header-name,
+.msp-tbm__row-name {
+    color: var(--slds-g-color-on-surface-3, #03234d);
+    display: block;
+    font-weight: var(--slds-g-font-weight-7, 700);
+}
+
+.msp-tbm__header-type,
+.msp-tbm__row-type {
+    color: var(--slds-g-color-on-surface-1, #5c5c5c);
+    display: block;
+    font-size: var(--slds-g-font-scale-1, 0.75rem);
+}
+
+.msp-tbm__row-label {
+    background-color: var(--slds-g-color-surface-container-1, #fff);
+    text-align: left;
+}
+
+.msp-tbm__cell {
+    background-color: var(--slds-g-color-surface-container-1, #fff);
+    border-bottom: 1px solid var(--slds-g-color-border-base-1, #e5e5e5);
+    padding: var(--slds-g-spacing-2, 0.5rem);
+    text-align: center;
+}
+
+.msp-tbm__cell_included {
+    background-color: var(--slds-g-color-accent-container-1, #d8e6fe);
+}
+
+.msp-tbm__empty {
+    align-items: center;
+    color: var(--slds-g-color-on-surface-2, #2e2e2e);
+    display: flex;
+    flex-direction: column;
+    font-size: var(--slds-g-font-scale-base, 0.8125rem);
+    gap: var(--slds-g-spacing-2, 0.5rem);
+    padding: var(--slds-g-spacing-6, 1.5rem) 0;
+    text-align: center;
+}

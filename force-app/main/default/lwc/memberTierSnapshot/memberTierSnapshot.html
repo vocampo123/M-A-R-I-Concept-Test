@@ -1,0 +1,84 @@
+<template>
+    <lightning-card title="Membership Tier" icon-name="standard:loyalty_tier_group">
+        <lightning-button
+            slot="actions"
+            label="View Tier"
+            variant="base"
+            onclick={handleViewTier}
+            disabled={hasNoSnapshot}>
+        </lightning-button>
+
+        <div class="slds-var-p-around_medium tier-snapshot">
+            <template lwc:if={hasSnapshot}>
+                <div class="tier-snapshot__identity">
+                    <p class="slds-text-heading_small slds-truncate" title={tierName}>{tierName}</p>
+                    <p class="slds-text-body_small slds-text-color_weak slds-truncate">
+                        <template lwc:if={programName}>{programName}</template>
+                        <template lwc:if={tierGroupName}> · {tierGroupName}</template>
+                    </p>
+                    <div class="slds-grid slds-gutters_xx-small slds-wrap slds-var-m-top_xx-small">
+                        <template lwc:if={tierType}>
+                            <lightning-badge label={tierType}></lightning-badge>
+                        </template>
+                        <template lwc:if={visibility}>
+                            <lightning-badge label={visibility}></lightning-badge>
+                        </template>
+                    </div>
+                </div>
+
+                <div class="slds-grid slds-wrap slds-gutters_x-small slds-var-m-top_medium">
+                    <div class="slds-col slds-size_1-of-2">
+                        <p class="slds-text-title">Annual Dues</p>
+                        <p class="tier-snapshot__value">
+                            <lightning-formatted-number
+                                value={annualDues}
+                                format-style="currency">
+                            </lightning-formatted-number>
+                        </p>
+                    </div>
+                    <template lwc:if={hasFmv}>
+                        <div class="slds-col slds-size_1-of-2">
+                            <p class="slds-text-title">Fair Market Value</p>
+                            <p class="tier-snapshot__value">
+                                <lightning-formatted-number
+                                    value={fairMarketValue}
+                                    format-style="currency">
+                                </lightning-formatted-number>
+                            </p>
+                        </div>
+                    </template>
+                    <div class="slds-col slds-size_1-of-2 slds-var-p-top_small">
+                        <p class="slds-text-title">Renewal Window</p>
+                        <p class="tier-snapshot__value">{renewalWindow}</p>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2 slds-var-p-top_small">
+                        <p class="slds-text-title">Grace Period</p>
+                        <p class="tier-snapshot__value">{gracePeriod}</p>
+                    </div>
+                </div>
+
+                <div class="tier-snapshot__lifecycle slds-var-m-top_medium">
+                    <p class="slds-text-title slds-var-m-bottom_xx-small">Tier Lifecycle</p>
+                    <div class="slds-grid slds-grid_align-spread tier-snapshot__path">
+                        <template for:each={lifecycleSteps} for:item="step">
+                            <div
+                                key={step.value}
+                                class={step.className}
+                                data-current={step.isCurrent}>
+                                <span class="slds-text-body_small">{step.label}</span>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </template>
+
+            <template lwc:if={hasNoSnapshot}>
+                <div class="slds-illustration slds-illustration_small">
+                    <p class="slds-text-body_regular slds-text-color_weak">
+                        This member is not yet linked to a Loyalty Program Member or Membership Tier.
+                    </p>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

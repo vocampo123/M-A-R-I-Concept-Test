@@ -1,0 +1,219 @@
+<template>
+    <article class="msc-shell" aria-labelledby="msc-page-title">
+        <div class="slds-page-header msc-page-header">
+            <div class="slds-page-header__row">
+                <div class="slds-page-header__col-title slds-has-flexi-truncate">
+                    <div class="slds-media slds-media_center slds-no-space slds-grow">
+                        <div class="slds-media__figure">
+                            <lightning-icon
+                                icon-name="standard:program_detail"
+                                size="medium"
+                                alternative-text="Membership Setup"
+                            ></lightning-icon>
+                        </div>
+                        <div class="slds-media__body">
+                            <h1
+                                id="msc-page-title"
+                                class="slds-page-header__title slds-truncate"
+                                title={currentStepLabel}
+                            >{currentStepLabel}</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-no-flex slds-grid slds-align-top">
+                    <div class="slds-page-header__controls">
+                        <div class="slds-page-header__control">
+                            <lightning-button-group>
+                                <lightning-button
+                                    label="Cancel"
+                                    variant="neutral"
+                                    onclick={handleCancel}
+                                ></lightning-button>
+                                <lightning-button
+                                    label="Save"
+                                    variant="brand"
+                                    onclick={handleSaveAndExit}
+                                ></lightning-button>
+                            </lightning-button-group>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="msc-body">
+            <aside class="msc-nav" aria-label="Setup steps">
+                <p class="msc-nav__heading">Setup Steps</p>
+                <lightning-vertical-navigation
+                    selected-item={currentStepValue}
+                    onselect={handleStepSelect}
+                >
+                    <lightning-vertical-navigation-section label="Program">
+                        <lightning-vertical-navigation-item-icon
+                            label="Program Basics"
+                            name="program"
+                            icon-name={programIcon}
+                        ></lightning-vertical-navigation-item-icon>
+                    </lightning-vertical-navigation-section>
+
+                    <lightning-vertical-navigation-section label="Tier Definitions">
+                        <lightning-vertical-navigation-item-icon
+                            label="Tiers"
+                            name="tiers"
+                            icon-name={tiersIcon}
+                        ></lightning-vertical-navigation-item-icon>
+                        <lightning-vertical-navigation-item-icon
+                            label="Benefits"
+                            name="benefits"
+                            icon-name={benefitsIcon}
+                        ></lightning-vertical-navigation-item-icon>
+                        <lightning-vertical-navigation-item-icon
+                            label="Tier-Benefit Mapping"
+                            name="tierBenefitMap"
+                            icon-name={tierBenefitMapIcon}
+                        ></lightning-vertical-navigation-item-icon>
+                    </lightning-vertical-navigation-section>
+
+                    <lightning-vertical-navigation-section label="Billing & Automation">
+                        <lightning-vertical-navigation-item-icon
+                            label="Payment Methods"
+                            name="paymentMethods"
+                            icon-name={paymentMethodsIcon}
+                        ></lightning-vertical-navigation-item-icon>
+                        <lightning-vertical-navigation-item-icon
+                            label="Pricing & Terms"
+                            name="pricingTerms"
+                            icon-name={pricingTermsIcon}
+                        ></lightning-vertical-navigation-item-icon>
+                        <lightning-vertical-navigation-item-icon
+                            label="Status Automation"
+                            name="graceAutomation"
+                            icon-name={graceAutomationIcon}
+                        ></lightning-vertical-navigation-item-icon>
+                        <lightning-vertical-navigation-item-icon
+                            label="Tax & FMV"
+                            name="taxFmv"
+                            icon-name={taxFmvIcon}
+                        ></lightning-vertical-navigation-item-icon>
+                        <lightning-vertical-navigation-item-icon
+                            label="Revenue Recognition"
+                            name="revenueRecognition"
+                            icon-name={revenueRecognitionIcon}
+                        ></lightning-vertical-navigation-item-icon>
+                    </lightning-vertical-navigation-section>
+
+                    <lightning-vertical-navigation-section label="Activate">
+                        <lightning-vertical-navigation-item-icon
+                            label="Review & Activate"
+                            name="review"
+                            icon-name={reviewIcon}
+                        ></lightning-vertical-navigation-item-icon>
+                    </lightning-vertical-navigation-section>
+                </lightning-vertical-navigation>
+            </aside>
+
+            <main class="msc-content">
+                <template lwc:if={isProgram}>
+                    <c-membership-setup-program-phase
+                        program={program}
+                        onfieldchange={handleProgramChange}
+                    ></c-membership-setup-program-phase>
+                </template>
+
+                <template lwc:if={isTiers}>
+                    <c-membership-setup-tiers-list
+                        tiers={tiers}
+                        ontierschange={handleTiersChange}
+                    ></c-membership-setup-tiers-list>
+                </template>
+
+                <template lwc:if={isBenefits}>
+                    <c-membership-setup-benefits-list
+                        benefits={benefits}
+                        onbenefitschange={handleBenefitsChange}
+                    ></c-membership-setup-benefits-list>
+                </template>
+
+                <template lwc:if={isTierBenefitMap}>
+                    <c-membership-setup-tier-benefit-map
+                        tiers={tiers}
+                        benefits={benefits}
+                        tier-benefit-map={tierBenefitMap}
+                        ontierbenefitmapchange={handleTierBenefitMapChange}
+                    ></c-membership-setup-tier-benefit-map>
+                </template>
+
+                <template lwc:if={isPaymentMethods}>
+                    <c-membership-setup-payment-methods
+                        billing={billing}
+                        onfieldchange={handleBillingChange}
+                    ></c-membership-setup-payment-methods>
+                </template>
+
+                <template lwc:if={isPricingTerms}>
+                    <c-membership-setup-pricing-terms
+                        program={program}
+                        billing={billing}
+                        onprogramfieldchange={handleProgramChange}
+                        onfieldchange={handleBillingChange}
+                    ></c-membership-setup-pricing-terms>
+                </template>
+
+                <template lwc:if={isGraceAutomation}>
+                    <c-membership-setup-grace-automation
+                        billing={billing}
+                        onfieldchange={handleBillingChange}
+                    ></c-membership-setup-grace-automation>
+                </template>
+
+                <template lwc:if={isTaxFmv}>
+                    <c-membership-setup-tax-fmv
+                        tiers={tiers}
+                        billing={billing}
+                        onfieldchange={handleBillingChange}
+                        onfmvtierchange={handleFmvByTierChange}
+                    ></c-membership-setup-tax-fmv>
+                </template>
+
+                <template lwc:if={isRevenueRecognition}>
+                    <c-membership-setup-revenue-rec
+                        billing={billing}
+                        onfieldchange={handleBillingChange}
+                        onrevrecruleschange={handleRevRecRulesChange}
+                    ></c-membership-setup-revenue-rec>
+                </template>
+
+                <template lwc:if={isReview}>
+                    <c-membership-setup-review-phase
+                        program={program}
+                        tiers={tiers}
+                        benefits={benefits}
+                        tier-benefit-map={tierBenefitMap}
+                        billing={billing}
+                    ></c-membership-setup-review-phase>
+                </template>
+            </main>
+        </div>
+
+        <footer class="msc-footer">
+            <div class="msc-footer__inner">
+                <lightning-button
+                    label="Back"
+                    variant="neutral"
+                    icon-name="utility:chevronleft"
+                    icon-position="left"
+                    onclick={handleBack}
+                    disabled={isFirstStep}
+                ></lightning-button>
+                <p class="msc-footer__progress">{stepCounter}</p>
+                <lightning-button
+                    label={nextLabel}
+                    variant="brand"
+                    icon-name="utility:chevronright"
+                    icon-position="right"
+                    onclick={handleNext}
+                ></lightning-button>
+            </div>
+        </footer>
+    </article>
+</template>

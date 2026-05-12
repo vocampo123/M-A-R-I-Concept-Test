@@ -1,0 +1,77 @@
+:host {
+    display: block;
+}
+
+.mc-alert-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.mc-alert-item {
+    border-bottom: var(--slds-g-sizing-border-1, 1px) solid var(--slds-g-color-border-1, #c9c9c9);
+    padding: var(--slds-g-spacing-3, 0.75rem) 0;
+}
+
+.mc-alert-item:last-child {
+    border-bottom: 0;
+}
+
+.mc-alert-body {
+    min-width: 0;
+    padding-inline: var(--slds-g-spacing-2, 0.5rem);
+}
+
+.mc-alert-title {
+    color: var(--slds-g-color-on-surface-3, #03234d);
+    font-size: var(--slds-g-font-scale-base, 0.8125rem);
+    font-weight: var(--slds-g-font-weight-6, 600);
+    line-height: var(--slds-g-font-line-height-3, 1.375);
+    margin: 0 0 var(--slds-g-spacing-1, 0.25rem);
+}
+
+.mc-alert-desc {
+    color: var(--slds-g-color-on-surface-1, #5c5c5c);
+    font-size: var(--slds-g-font-scale-base, 0.8125rem);
+    line-height: var(--slds-g-font-line-height-3, 1.375);
+    margin: 0 0 var(--slds-g-spacing-1, 0.25rem);
+}
+
+.mc-alert-time {
+    color: var(--slds-g-color-on-surface-1, #5c5c5c);
+    font-size: var(--slds-g-font-scale-1, 0.75rem);
+    margin: 0;
+}
+
+.mc-alert-action {
+    align-self: flex-start;
+}
+
+.mc-alert-icon {
+    align-items: center;
+    border-radius: var(--slds-g-radius-border-circle, 100%);
+    display: inline-flex;
+    height: var(--slds-g-sizing-8, 1.75rem);
+    justify-content: center;
+    width: var(--slds-g-sizing-8, 1.75rem);
+}
+
+.mc-alert-icon_error {
+    background-color: var(--slds-g-color-error-container-1, #fddde3);
+    color: var(--slds-g-color-error-1, #b60554);
+}
+
+.mc-alert-icon_warning {
+    background-color: var(--slds-g-color-warning-container-1, #f9e3b6);
+    color: var(--slds-g-color-warning-1, #8c4b02);
+}
+
+.mc-alert-icon_success {
+    background-color: var(--slds-g-color-success-container-1, #acf3e4);
+    color: var(--slds-g-color-success-1, #056764);
+}
+
+.mc-alert-icon_info {
+    background-color: var(--slds-g-color-surface-2, #f3f3f3);
+    color: var(--slds-g-color-on-surface-2, #2e2e2e);
+}

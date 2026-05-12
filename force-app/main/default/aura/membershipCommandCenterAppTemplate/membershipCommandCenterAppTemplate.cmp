@@ -1,0 +1,17 @@
+<aura:component implements="lightning:appHomeTemplate" description="Three-region Membership Command Center app page template.">
+    <aura:attribute name="alerts" type="Aura.Component[]" />
+    <aura:attribute name="primary" type="Aura.Component[]" />
+    <aura:attribute name="watchlist" type="Aura.Component[]" />
+
+    <lightning:layout horizontalAlign="spread" multipleRows="true" pullToBoundary="small">
+        <lightning:layoutItem size="12" largeDeviceSize="2" flexibility="grow" padding="around-small">
+            {!v.alerts}
+        </lightning:layoutItem>
+        <lightning:layoutItem size="12" largeDeviceSize="7" flexibility="grow" padding="around-small">
+            {!v.primary}
+        </lightning:layoutItem>
+        <lightning:layoutItem size="12" largeDeviceSize="3" flexibility="grow" padding="around-small">
+            {!v.watchlist}
+        </lightning:layoutItem>
+    </lightning:layout>
+</aura:component>

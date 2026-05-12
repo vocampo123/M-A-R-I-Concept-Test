@@ -1,0 +1,26 @@
+:host {
+    display: block;
+}
+
+.md-shell {
+    background-color: var(--slds-g-color-surface-2, #f3f3f3);
+    display: flex;
+    flex-direction: column;
+}
+
+.md-body {
+    align-items: flex-start;
+    display: flex;
+    gap: var(--slds-g-spacing-3, 0.75rem);
+    padding: var(--slds-g-spacing-4, 1rem);
+}
+
+.md-main {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.md-right-panel {
+    flex: 0 0 22rem;
+    min-width: 0;
+}

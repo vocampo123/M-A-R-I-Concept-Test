@@ -1,0 +1,32 @@
+<template>
+    <lightning-card class="mlap-card" title={title} icon-name={iconName}>
+        <div class="slds-var-p-around_medium">
+            <template lwc:if={hasEvents}>
+                <ul class="mlap-list" role="list">
+                    <template for:each={displayEvents} for:item="event">
+                        <li key={event.id} class={event.itemClass}>
+                            <div class="mlap-rail" aria-hidden="true">
+                                <lightning-icon icon-name={event.resolvedIcon} size="small" alternative-text=""></lightning-icon>
+                                <span class="mlap-bar"></span>
+                            </div>
+                            <div class="mlap-body">
+                                <div class="mlap-header">
+                                    <p class="mlap-title">{event.title}</p>
+                                    <template lwc:if={event.hasDate}>
+                                        <p class="mlap-date">{event.date}</p>
+                                    </template>
+                                </div>
+                                <template lwc:if={event.hasDescription}>
+                                    <p class="mlap-description">{event.description}</p>
+                                </template>
+                            </div>
+                        </li>
+                    </template>
+                </ul>
+            </template>
+            <template lwc:else>
+                <p class="mlap-empty">{emptyMessage}</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

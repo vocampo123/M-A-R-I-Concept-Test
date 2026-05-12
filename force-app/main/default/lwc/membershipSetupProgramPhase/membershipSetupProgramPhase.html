@@ -1,0 +1,27 @@
+<template>
+    <div class="msp-program">
+        <lightning-card title="Program identity" icon-name="standard:program_detail">
+            <div class="slds-var-p-around_medium msp-program__section">
+                <p class="msp-program__section-text">
+                    Give your membership program a name and a short description.
+                    Members and admins see this name throughout Salesforce.
+                </p>
+                <div class="msp-program__form">
+                    <lightning-input
+                        label="Program name"
+                        placeholder="e.g. Founders Membership Program"
+                        required
+                        value={programName}
+                        onchange={handleNameChange}
+                    ></lightning-input>
+                    <lightning-textarea
+                        label="Program description"
+                        placeholder="Short description members will see at sign-up."
+                        value={programDescription}
+                        onchange={handleDescriptionChange}
+                    ></lightning-textarea>
+                </div>
+            </div>
+        </lightning-card>
+    </div>
+</template>

@@ -1,0 +1,13 @@
+<template>
+        <div class="md-shell">
+            <c-membership-member-record-header member={member}></c-membership-member-record-header>
+            <div class="md-body">
+                <main class="md-main" aria-label="Member detail tabs">
+                    <c-membership-member-record-tabs member={member}></c-membership-member-record-tabs>
+                </main>
+                <aside class="md-right-panel" aria-label="Member side panel">
+                    <c-membership-member-record-side-panel member={member}></c-membership-member-record-side-panel>
+                </aside>
+            </div>
+        </div>
+</template>

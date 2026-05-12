@@ -1,0 +1,43 @@
+<template>
+    <div class="md-right-panel">
+        <lightning-card title="Member Notes" icon-name="standard:note">
+            <div class="slds-var-p-around_medium">
+                <p class="md-notes-text">{notes}</p>
+            </div>
+        </lightning-card>
+
+        <lightning-card title="Billing Snapshot" icon-name="standard:billing">
+            <div class="slds-var-p-around_medium">
+                <dl class="md-snapshot-list">
+                    <template for:each={billingSnapshot} for:item="item">
+                        <div key={item.label} class="md-snapshot-row">
+                            <dt class="slds-text-title">{item.label}</dt>
+                            <dd>{item.value}</dd>
+                        </div>
+                    </template>
+                </dl>
+            </div>
+        </lightning-card>
+
+        <lightning-card title="Recent Activity" icon-name="standard:task2">
+            <div class="slds-var-p-around_medium">
+                <ul class="md-activity-list">
+                    <template for:each={recentActivity} for:item="item">
+                        <li key={item.id} class="md-activity-item">
+                            <div class="slds-media slds-media_small">
+                                <div class="slds-media__figure">
+                                    <lightning-icon icon-name={item.icon} size="small" alternative-text={item.type}></lightning-icon>
+                                </div>
+                                <div class="slds-media__body">
+                                    <p class="md-activity-title">{item.title}</p>
+                                    <p class="md-activity-desc">{item.description}</p>
+                                    <p class="md-activity-date">{item.date}</p>
+                                </div>
+                            </div>
+                        </li>
+                    </template>
+                </ul>
+            </div>
+        </lightning-card>
+    </div>
+</template>

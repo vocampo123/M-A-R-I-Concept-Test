@@ -1,0 +1,120 @@
+<template>
+    <div class="mc-primary-stack">
+        <section class="mc-digest" aria-label="AI Membership Digest">
+            <div class="mc-digest__icon">
+                <lightning-icon icon-name="standard:ai_accelerator_card" size="small" alternative-text="AI Digest"></lightning-icon>
+            </div>
+            <div class="mc-digest__body">
+                <p class="mc-digest__heading">AI Membership Digest — May 7, 2026</p>
+                <p class="mc-digest__text">
+                    23 payment failures require immediate attention, up 5 from yesterday.
+                    312 members renewing this month represent $89,400 in expected revenue.
+                    Churn risk is elevated in the Gold tier; 34 members have had no benefit activity in 45+ days.
+                    Recommend prioritizing outreach to Grace Period members before May 10.
+                </p>
+            </div>
+        </section>
+
+        <div class="slds-grid slds-wrap slds-gutters_small">
+            <template for:each={kpis} for:item="kpi">
+                <div key={kpi.id} class="slds-col slds-size_1-of-2 slds-large-size_1-of-4">
+                    <article class="mc-kpi">
+                        <div class="mc-kpi__header slds-grid slds-grid_align-spread slds-grid_vertical-align-center">
+                            <span class="mc-kpi__label slds-truncate">{kpi.label}</span>
+                            <lightning-icon
+                                icon-name={kpi.iconName}
+                                size="x-small"
+                                alternative-text={kpi.label}
+                                class="mc-kpi__icon">
+                            </lightning-icon>
+                        </div>
+                        <p class="mc-kpi__value">{kpi.value}</p>
+                        <p class={kpi.trendClass}>
+                            <lightning-icon icon-name={kpi.trendIcon} size="xx-small" alternative-text="Trend"></lightning-icon>
+                            {kpi.trend} <span class="mc-kpi__trend-label">{kpi.trendLabel}</span>
+                        </p>
+                    </article>
+                </div>
+            </template>
+        </div>
+
+        <div class="slds-grid slds-wrap slds-gutters_small mc-pair">
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 mc-pair__col">
+                <lightning-card title="Members by Tier" icon-name="standard:groups">
+                    <lightning-button slot="actions" label="View Members by Tier" variant="base"></lightning-button>
+                    <div class="slds-var-p-around_medium mc-list-card__body">
+                        <template for:each={tierDistribution} for:item="tier">
+                            <div key={tier.tier} class="mc-tier-row">
+                                <div class="slds-grid slds-grid_align-spread slds-m-bottom_xx-small">
+                                    <span class="slds-text-body_small">{tier.tier}</span>
+                                    <span class="slds-text-body_small slds-text-color_weak">{tier.count}</span>
+                                </div>
+                                <lightning-progress-bar value={tier.percent} variant="base"></lightning-progress-bar>
+                            </div>
+                        </template>
+                    </div>
+                </lightning-card>
+            </div>
+
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 mc-pair__col">
+                <lightning-card title="Benefit Utilization" icon-name="standard:reward">
+                    <lightning-button slot="actions" label="View Benefits Report" variant="base"></lightning-button>
+                    <div class="slds-var-p-around_medium mc-list-card__body">
+                        <template for:each={benefitUtilization} for:item="benefit">
+                            <div key={benefit.id} class="mc-benefit-row">
+                                <div class="slds-grid slds-grid_align-spread slds-m-bottom_xx-small">
+                                    <span class="slds-text-body_small">{benefit.label}</span>
+                                    <span class="slds-text-body_small slds-text-color_weak">{benefit.pct}%</span>
+                                </div>
+                                <lightning-progress-bar value={benefit.pct} variant="base"></lightning-progress-bar>
+                            </div>
+                        </template>
+                    </div>
+                </lightning-card>
+            </div>
+        </div>
+
+        <div class="slds-grid slds-wrap slds-gutters_small mc-pair">
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 mc-pair__col">
+                <lightning-card title="Churn Risk" icon-name="standard:incident">
+                    <lightning-button slot="actions" label="View At-Risk Members" variant="base"></lightning-button>
+                    <div class="slds-var-p-around_medium">
+                        <div class="slds-grid slds-gutters_small slds-wrap">
+                            <template for:each={riskTiles} for:item="risk">
+                                <div key={risk.label} class="slds-col slds-size_1-of-2">
+                                    <div class={risk.className}>
+                                        <p class="mc-risk-tile__count">{risk.count}</p>
+                                        <p class="mc-risk-tile__label">{risk.label}</p>
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                </lightning-card>
+            </div>
+
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 mc-pair__col">
+                <lightning-card title="Revenue This Month" icon-name="standard:currency">
+                    <lightning-button slot="actions" label="View Revenue Report" variant="base"></lightning-button>
+                    <div class="slds-var-p-around_medium">
+                        <p class="mc-revenue-amount">$89,420</p>
+                        <p class="mc-kpi__trend mc-kpi__trend_positive slds-m-top_xx-small">
+                            <lightning-icon icon-name="utility:arrowup" size="xx-small" alternative-text="Trend up"></lightning-icon>
+                            +12.4% <span class="mc-kpi__trend-label">vs last month</span>
+                        </p>
+                        <div class="slds-grid slds-gutters_small slds-m-top_small">
+                            <div class="slds-col">
+                                <p class="slds-text-body_small slds-text-color_weak">New Members</p>
+                                <p class="slds-text-body_regular">$21,600</p>
+                            </div>
+                            <div class="slds-col">
+                                <p class="slds-text-body_small slds-text-color_weak">Renewals</p>
+                                <p class="slds-text-body_regular">$67,820</p>
+                            </div>
+                        </div>
+                    </div>
+                </lightning-card>
+            </div>
+        </div>
+    </div>
+</template>

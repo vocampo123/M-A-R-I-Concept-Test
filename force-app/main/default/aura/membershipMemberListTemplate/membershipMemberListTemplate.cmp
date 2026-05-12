@@ -1,0 +1,9 @@
+<aura:component implements="lightning:appHomeTemplate" description="Membership member list app page template.">
+    <aura:attribute name="header" type="Aura.Component[]" />
+    <aura:attribute name="table" type="Aura.Component[]" />
+
+    <div class="mml-template">
+        <div>{!v.header}</div>
+        <div>{!v.table}</div>
+    </div>
+</aura:component>

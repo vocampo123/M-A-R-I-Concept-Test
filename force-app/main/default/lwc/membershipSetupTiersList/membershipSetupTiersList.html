@@ -1,0 +1,43 @@
+<template>
+    <lightning-card title="Membership Tiers" icon-name="standard:hierarchy">
+        <lightning-button
+            slot="actions"
+            label="Add Tier"
+            icon-name="utility:add"
+            icon-position="left"
+            onclick={handleAddTier}
+        ></lightning-button>
+        <div class="slds-var-p-around_medium msp-tlist__body">
+            <p class="msp-tlist__text">
+                Define the membership tiers your program offers. Click any cell
+                to edit it inline. The tiers you create here drive every
+                downstream section — pricing, FMV, and revenue recognition all
+                reference this list.
+            </p>
+            <template lwc:if={hasTiers}>
+                <div class="msp-tlist__table">
+                    <lightning-datatable
+                        key-field="id"
+                        data={tiers}
+                        columns={columns}
+                        draft-values={draftValues}
+                        onsave={handleSave}
+                        oncancel={handleCancel}
+                        onrowaction={handleRowAction}
+                        hide-checkbox-column
+                    ></lightning-datatable>
+                </div>
+            </template>
+            <template lwc:else>
+                <div class="msp-tlist__empty">
+                    <lightning-icon
+                        icon-name="utility:hierarchy"
+                        size="small"
+                        alternative-text="No tiers yet"
+                    ></lightning-icon>
+                    <p>You haven’t added any tiers yet. Click <strong>Add Tier</strong> to get started.</p>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

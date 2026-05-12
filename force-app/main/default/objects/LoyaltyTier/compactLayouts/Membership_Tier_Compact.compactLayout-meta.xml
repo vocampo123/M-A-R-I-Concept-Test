@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Membership_Tier_Compact</fullName>
+    <fields>Name</fields>
+    <fields>Tier_Type__c</fields>
+    <fields>Lifecycle_Status__c</fields>
+    <fields>Visibility__c</fields>
+    <fields>Grace_Period_Days__c</fields>
+    <label>Membership Tier Compact</label>
+</CompactLayout>

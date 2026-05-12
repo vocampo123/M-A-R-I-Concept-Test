@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Lightning page tab for the Membership setup wizard.</description>
+    <flexiPage>Membership_Setup</flexiPage>
+    <label>Set up</label>
+    <motif>Custom17: Cone</motif>
+</CustomTab>

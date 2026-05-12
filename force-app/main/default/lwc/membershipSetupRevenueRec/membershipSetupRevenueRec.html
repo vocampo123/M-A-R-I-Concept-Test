@@ -1,0 +1,62 @@
+<template>
+    <div class="msp-rr">
+        <lightning-card title="Default Recognition Policy" icon-name="standard:budget">
+            <div class="slds-var-p-around_medium msp-rr__section">
+                <p class="msp-rr__text">
+                    Choose how membership revenue is recognized over the term.
+                    This is passed through to Revenue Cloud for general-ledger
+                    mapping.
+                </p>
+                <lightning-radio-group
+                    label="Recognition policy"
+                    name="policy"
+                    type="radio"
+                    options={policyOptions}
+                    value={policy}
+                    onchange={handlePolicyChange}
+                ></lightning-radio-group>
+            </div>
+        </lightning-card>
+
+        <lightning-card title="Recognition Rules by Product Type" icon-name="standard:entitlement_policy">
+            <lightning-button
+                slot="actions"
+                label="Add Rule"
+                icon-name="utility:add"
+                icon-position="left"
+                onclick={handleAddRule}
+            ></lightning-button>
+            <div class="slds-var-p-around_medium msp-rr__section">
+                <p class="msp-rr__text">
+                    Define how revenue is deferred and recognized for each
+                    product type. These rules govern automated journal entries
+                    in your accounting integration.
+                </p>
+                <template lwc:if={hasRules}>
+                    <div class="msp-rr__table">
+                        <lightning-datatable
+                            key-field="id"
+                            data={rules}
+                            columns={columns}
+                            draft-values={draftValues}
+                            onsave={handleSave}
+                            oncancel={handleCancel}
+                            onrowaction={handleRowAction}
+                            hide-checkbox-column
+                        ></lightning-datatable>
+                    </div>
+                </template>
+                <template lwc:else>
+                    <div class="msp-rr__empty">
+                        <lightning-icon
+                            icon-name="utility:rules"
+                            size="small"
+                            alternative-text="No rules"
+                        ></lightning-icon>
+                        <p>No recognition rules defined yet. Click <strong>Add Rule</strong> to get started.</p>
+                    </div>
+                </template>
+            </div>
+        </lightning-card>
+    </div>
+</template>

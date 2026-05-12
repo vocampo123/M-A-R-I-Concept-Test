@@ -1,0 +1,53 @@
+<template>
+    <div class="msp-pm">
+        <lightning-card title="Enabled Payment Methods" icon-name="standard:product_transfer">
+            <div class="slds-var-p-around_medium msp-pm__section">
+                <p class="msp-pm__text">
+                    Select the payment methods your organization accepts. Members
+                    will see these options at checkout and renewal.
+                </p>
+                <lightning-checkbox-group
+                    label="Payment methods"
+                    name="paymentMethods"
+                    options={paymentMethodOptions}
+                    value={paymentMethods}
+                    onchange={handleMethodsChange}
+                ></lightning-checkbox-group>
+            </div>
+        </lightning-card>
+
+        <lightning-card title="Checkout Options" icon-name="standard:order_item">
+            <div class="slds-var-p-around_medium msp-pm__section">
+                <p class="msp-pm__text">
+                    Choose how members can combine purchases at checkout.
+                </p>
+                <div class="msp-pm__toggles">
+                    <lightning-input
+                        type="toggle"
+                        label="Allow members to purchase membership dues and merchandise in the same cart"
+                        message-toggle-active="On"
+                        message-toggle-inactive="Off"
+                        checked={mixedCart}
+                        onchange={handleMixedCart}
+                    ></lightning-input>
+                    <lightning-input
+                        type="toggle"
+                        label="Allow $0 checkout for free benefit redemptions"
+                        message-toggle-active="On"
+                        message-toggle-inactive="Off"
+                        checked={zeroCheckout}
+                        onchange={handleZeroCheckout}
+                    ></lightning-input>
+                    <lightning-input
+                        type="toggle"
+                        label="Enable installment payment plans for membership dues"
+                        message-toggle-active="On"
+                        message-toggle-inactive="Off"
+                        checked={installments}
+                        onchange={handleInstallments}
+                    ></lightning-input>
+                </div>
+            </div>
+        </lightning-card>
+    </div>
+</template>

@@ -1,0 +1,92 @@
+:host {
+    display: block;
+}
+
+.mlap-card {
+    --slds-c-card-radius-border: var(--slds-g-radius-border-3, 0.75rem);
+    background-color: var(--slds-g-color-surface-container-1, #fff);
+    border-radius: var(--slds-g-radius-border-3, 0.75rem);
+    box-shadow: var(--slds-g-shadow-1, 0 2px 2px rgba(0, 0, 0, 0.1));
+    display: block;
+}
+
+.mlap-list {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.mlap-item {
+    display: grid;
+    grid-template-columns: var(--slds-g-sizing-9, 2rem) 1fr;
+    gap: var(--slds-g-spacing-3, 0.75rem);
+    padding-block-end: var(--slds-g-spacing-3, 0.75rem);
+}
+
+.mlap-item--last {
+    padding-block-end: 0;
+}
+
+.mlap-rail {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: var(--slds-g-spacing-1, 0.25rem);
+    padding-block-start: var(--slds-g-spacing-1, 0.25rem);
+}
+
+.mlap-bar {
+    background-color: var(--slds-g-color-border-1, #c9c9c9);
+    border-radius: var(--slds-g-radius-border-1, 0.125rem);
+    flex: 1 0 auto;
+    min-height: var(--slds-g-spacing-2, 0.5rem);
+    width: var(--slds-g-sizing-1, 0.125rem);
+}
+
+.mlap-item--last .mlap-bar {
+    display: none;
+}
+
+.mlap-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--slds-g-spacing-1, 0.25rem);
+    min-width: 0;
+    padding-block-start: var(--slds-g-spacing-1, 0.25rem);
+}
+
+.mlap-header {
+    align-items: baseline;
+    column-gap: var(--slds-g-spacing-2, 0.5rem);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.mlap-title {
+    color: var(--slds-g-color-on-surface-3, #181818);
+    font-size: var(--slds-g-font-scale-base, 0.875rem);
+    font-weight: var(--slds-g-font-weight-5, 700);
+    margin: 0;
+}
+
+.mlap-date {
+    color: var(--slds-g-color-on-surface-1, #5c5c5c);
+    font-size: var(--slds-g-font-scale-neg-2, 0.75rem);
+    margin: 0;
+    white-space: nowrap;
+}
+
+.mlap-description {
+    color: var(--slds-g-color-on-surface-2, #2e2e2e);
+    font-size: var(--slds-g-font-scale-neg-1, 0.8125rem);
+    margin: 0;
+}
+
+.mlap-empty {
+    color: var(--slds-g-color-on-surface-1, #5c5c5c);
+    font-size: var(--slds-g-font-scale-neg-1, 0.8125rem);
+    margin: 0;
+}

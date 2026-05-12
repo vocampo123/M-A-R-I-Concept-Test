@@ -1,0 +1,11 @@
+<aura:component implements="lightning:recordHomeTemplate" access="global" description="Membership record page template with a persistent right rail.">
+    <aura:attribute name="header" type="Aura.Component[]" />
+    <aura:attribute name="main" type="Aura.Component[]" />
+    <aura:attribute name="sidebar" type="Aura.Component[]" />
+
+    <div class="membership-record-template">
+        <div class="membership-record-template__header">{!v.header}</div>
+        <div class="membership-record-template__main">{!v.main}</div>
+        <div class="membership-record-template__sidebar">{!v.sidebar}</div>
+    </div>
+</aura:component>

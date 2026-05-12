@@ -1,0 +1,24 @@
+<template>
+    <lightning-card title="Benefit Utilization" icon-name="standard:reward">
+        <lightning-button label="View All" variant="base" slot="actions"></lightning-button>
+        <div class="slds-var-p-around_medium benefit-panel">
+            <div class="slds-grid slds-wrap slds-gutters_small">
+                <template for:each={summary} for:item="item">
+                    <div key={item.label} class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3">
+                        <div class="summary">
+                            <p class="slds-text-title">{item.label}</p>
+                            <p class="summary__value">{item.value}</p>
+                        </div>
+                    </div>
+                </template>
+            </div>
+
+            <lightning-datatable
+                key-field="id"
+                data={benefits}
+                columns={columns}
+                hide-checkbox-column>
+            </lightning-datatable>
+        </div>
+    </lightning-card>
+</template>

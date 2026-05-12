@@ -1,0 +1,36 @@
+.THIS.mmr-template {
+    display: grid;
+    gap: var(--slds-g-spacing-4, 1rem);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 22rem);
+    grid-template-rows: auto auto;
+}
+
+.THIS .mmr-template__header {
+    grid-column: 1 / span 2;
+    grid-row: 1;
+}
+
+.THIS .mmr-template__main {
+    grid-column: 1;
+    grid-row: 2;
+    min-width: 0;
+}
+
+.THIS .mmr-template__side {
+    grid-column: 2;
+    grid-row: 2;
+    min-width: 0;
+}
+
+@media (max-width: 64rem) {
+    .THIS.mmr-template {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .THIS .mmr-template__header,
+    .THIS .mmr-template__main,
+    .THIS .mmr-template__side {
+        grid-column: 1;
+        grid-row: auto;
+    }
+}

@@ -1,0 +1,30 @@
+/* Global Header: Action Icons */
+.lightning-button-menu_custom .slds-button__icon {
+    fill: light-dark(var(--slds-g-color-palette-neutral-60), var(--slds-g-color-palette-neutral-40));
+}
+
+.lightning-button-menu_custom:hover .slds-button__icon {
+    fill: light-dark(var(--slds-g-color-palette-neutral-50), var(--slds-g-color-palette-neutral-30));
+}
+
+.lightning-button-menu_custom lightning-primitive-icon:nth-of-type(2) {
+    display: none;
+}
+
+.lightning-button-menu_custom .slds-button:first-child {
+    border-inline-end-width: var(--slds-g-border-width-1, 1px);
+}
+
+.lightning-button-menu_custom .slds-button_icon-container-more {
+    line-height: inherit;
+}
+
+/* Record-page tabset indicator — thicken to match global nav weight.
+   The cosmos theme resets `--slds-c-tabs-list-sizing-border` on the
+   internal `.slds-tabs_default` element inside the lightning-tab-bar
+   shadow DOM, which shadows any host-level override. Setting it on the
+   same selector here wins on specificity and reaches synthetic shadow. */
+.lmd-shell .slds-tabs_default {
+    --slds-c-tabs-list-sizing-border: var(--slds-g-sizing-border-3, 3px);
+    --slds-s-navigation-sizing-border-active: var(--slds-g-sizing-border-3, 3px);
+}

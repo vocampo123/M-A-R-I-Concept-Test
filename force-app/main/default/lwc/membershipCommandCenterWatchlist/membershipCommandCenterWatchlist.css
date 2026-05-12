@@ -1,0 +1,39 @@
+:host {
+    display: block;
+}
+
+.mc-watchlist-stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--slds-g-spacing-4, 1rem);
+}
+
+.mc-renewal-item {
+    border-bottom: var(--slds-g-sizing-border-1, 1px) solid var(--slds-g-color-border-1, #c9c9c9);
+    padding: var(--slds-g-spacing-2, 0.5rem) 0;
+}
+
+.mc-renewal-item:last-of-type {
+    border-bottom: 0;
+}
+
+.mc-renewal-amount {
+    color: var(--slds-g-color-on-surface-3, #03234d);
+    font-size: var(--slds-g-font-scale-base, 0.8125rem);
+    font-weight: var(--slds-g-font-weight-7, 700);
+}
+
+.mc-event-item {
+    border-bottom: var(--slds-g-sizing-border-1, 1px) solid var(--slds-g-color-border-1, #c9c9c9);
+    padding: var(--slds-g-spacing-2, 0.5rem) 0;
+}
+
+.mc-event-item:last-of-type {
+    border-bottom: 0;
+}
+
+.mc-event-date {
+    color: var(--slds-g-color-on-surface-3, #03234d);
+    font-size: var(--slds-g-font-scale-base, 0.8125rem);
+    font-weight: var(--slds-g-font-weight-7, 700);
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Public_Tiers</fullName>
+    <columns>Name</columns>
+    <columns>Tier_Type__c</columns>
+    <columns>Lifecycle_Status__c</columns>
+    <columns>Seat_Count__c</columns>
+    <columns>Fair_Market_Value__c</columns>
+    <columns>SequenceNumber</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Visibility__c</field>
+        <operation>equals</operation>
+        <value>Public</value>
+    </filters>
+    <label>Public Tiers</label>
+</ListView>

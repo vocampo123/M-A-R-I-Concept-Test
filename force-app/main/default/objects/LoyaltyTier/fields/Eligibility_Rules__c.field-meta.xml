@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Eligibility_Rules__c</fullName>
+    <label>Eligibility Rules</label>
+    <description>Free-form eligibility criteria (e.g. must be over 65, have a student email, hold a professional credential).</description>
+    <length>500</length>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

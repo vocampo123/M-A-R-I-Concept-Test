@@ -1,0 +1,41 @@
+<template>
+    <lightning-card title="Benefits Catalog" icon-name="standard:reward">
+        <lightning-button
+            slot="actions"
+            label="Add Benefit"
+            icon-name="utility:add"
+            icon-position="left"
+            onclick={handleAddBenefit}
+        ></lightning-button>
+        <div class="slds-var-p-around_medium msp-blist__body">
+            <p class="msp-blist__text">
+                Define the benefits your membership program offers. After defining
+                benefits here, attach them to specific tiers in the next step.
+            </p>
+            <template lwc:if={hasBenefits}>
+                <div class="msp-blist__table">
+                    <lightning-datatable
+                        key-field="id"
+                        data={benefits}
+                        columns={columns}
+                        draft-values={draftValues}
+                        onsave={handleSave}
+                        oncancel={handleCancel}
+                        onrowaction={handleRowAction}
+                        hide-checkbox-column
+                    ></lightning-datatable>
+                </div>
+            </template>
+            <template lwc:else>
+                <div class="msp-blist__empty">
+                    <lightning-icon
+                        icon-name="utility:reward"
+                        size="small"
+                        alternative-text="No benefits yet"
+                    ></lightning-icon>
+                    <p>You haven’t added any benefits yet. Click <strong>Add Benefit</strong> to get started.</p>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

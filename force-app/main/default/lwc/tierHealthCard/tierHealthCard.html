@@ -1,0 +1,66 @@
+<template>
+    <lightning-card title="Tier Health" icon-name="standard:loyalty_tier_group">
+        <div class="slds-var-p-around_medium tier-health">
+            <div class="tier-health__identity">
+                <p class="slds-text-heading_small slds-truncate" title={tierName}>{tierName}</p>
+                <div class="slds-grid slds-gutters_xx-small slds-wrap slds-var-m-top_xx-small">
+                    <template lwc:if={tierType}>
+                        <lightning-badge label={tierType}></lightning-badge>
+                    </template>
+                    <template lwc:if={visibility}>
+                        <lightning-badge label={visibility}></lightning-badge>
+                    </template>
+                    <template lwc:if={lifecycleStatus}>
+                        <lightning-badge label={lifecycleStatus}></lightning-badge>
+                    </template>
+                </div>
+            </div>
+
+            <div class="tier-health__metrics slds-var-m-top_medium slds-grid slds-wrap slds-gutters_x-small">
+                <div class="slds-col slds-size_1-of-2 slds-var-p-bottom_small">
+                    <p class="slds-text-title">Members</p>
+                    <p class="tier-health__value">{memberCount}</p>
+                </div>
+                <div class="slds-col slds-size_1-of-2 slds-var-p-bottom_small">
+                    <p class="slds-text-title">Annual Dues</p>
+                    <p class="tier-health__value">
+                        <lightning-formatted-number
+                            value={totalAnnualDues}
+                            format-style="currency">
+                        </lightning-formatted-number>
+                    </p>
+                </div>
+                <div class="slds-col slds-size_1-of-2">
+                    <p class="slds-text-title">Active Benefits</p>
+                    <p class="tier-health__value">{activeBenefitsCount}</p>
+                </div>
+                <div class="slds-col slds-size_1-of-2">
+                    <p class="slds-text-title">Promotions</p>
+                    <p class="tier-health__value">{activePromotionsCount}</p>
+                </div>
+            </div>
+
+            <div class="tier-health__rules slds-var-m-top_medium">
+                <div class="slds-grid slds-grid_align-spread slds-var-p-vertical_xx-small">
+                    <span class="slds-text-body_small slds-text-color_weak">Renewal window</span>
+                    <span class="slds-text-body_small">{renewalWindow}</span>
+                </div>
+                <div class="slds-grid slds-grid_align-spread slds-var-p-vertical_xx-small">
+                    <span class="slds-text-body_small slds-text-color_weak">Grace period</span>
+                    <span class="slds-text-body_small">{gracePeriod}</span>
+                </div>
+                <template lwc:if={hasFmv}>
+                    <div class="slds-grid slds-grid_align-spread slds-var-p-vertical_xx-small">
+                        <span class="slds-text-body_small slds-text-color_weak">Fair market value</span>
+                        <span class="slds-text-body_small">
+                            <lightning-formatted-number
+                                value={fairMarketValue}
+                                format-style="currency">
+                            </lightning-formatted-number>
+                        </span>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </lightning-card>
+</template>

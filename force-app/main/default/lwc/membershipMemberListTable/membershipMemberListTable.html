@@ -1,0 +1,45 @@
+<template>
+    <div class="ml-list">
+        <div class="ml-filters">
+            <div class="ml-filters__search">
+                <lightning-input
+                    type="search"
+                    label="Search Members"
+                    placeholder="Search members..."
+                    value={searchTerm}
+                    onchange={handleSearch}>
+                </lightning-input>
+            </div>
+            <div class="ml-filters__select">
+                <lightning-combobox
+                    label="Tier"
+                    options={tierOptions}
+                    value={tierFilter}
+                    onchange={handleTierFilter}>
+                </lightning-combobox>
+            </div>
+            <div class="ml-filters__select">
+                <lightning-combobox
+                    label="Status"
+                    options={statusOptions}
+                    value={statusFilter}
+                    onchange={handleStatusFilter}>
+                </lightning-combobox>
+            </div>
+        </div>
+
+        <div class="ml-table">
+            <lightning-datatable
+                key-field="id"
+                data={filteredData}
+                columns={columns}
+                sorted-by={sortedBy}
+                sorted-direction={sortedDirection}
+                column-widths-mode="auto"
+                onsort={handleSort}
+                onrowaction={handleRowAction}
+                show-row-number-column>
+            </lightning-datatable>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Seat_Count__c</fullName>
+    <label>Seat Count</label>
+    <description>Number of members included in this tier (e.g. 2 adults for Family, 15 employees for Corporate).</description>
+    <precision>5</precision>
+    <scale>0</scale>
+    <type>Number</type>
+</CustomField>

@@ -1,0 +1,84 @@
+:host {
+    display: block;
+}
+
+.md-content-container {
+    background-color: var(--slds-g-color-surface-1, #fff);
+    border: var(--slds-g-sizing-border-1, 1px) solid var(--slds-g-color-border-1, #c9c9c9);
+    border-radius: var(--slds-g-radius-border-2, 0.25rem);
+    overflow: hidden;
+}
+
+.md-details-form {
+    padding: var(--slds-g-spacing-3, 0.75rem) var(--slds-g-spacing-4, 1rem) var(--slds-g-spacing-4, 1rem);
+}
+
+.md-section-divider {
+    align-items: center;
+    background-color: var(--slds-g-color-surface-container-2, #f3f3f3);
+    border-radius: var(--slds-g-radius-border-2, 0.25rem);
+    display: flex;
+    gap: var(--slds-g-spacing-2, 0.5rem);
+    margin-block: var(--slds-g-spacing-3, 0.75rem);
+    min-height: var(--slds-g-sizing-8, 1.5rem);
+    padding: 0 var(--slds-g-spacing-3, 0.75rem);
+}
+
+.md-detail-section:first-child .md-section-divider {
+    margin-block-start: 0;
+}
+
+.md-section-title {
+    color: var(--slds-g-color-on-surface-3, #03234d);
+    font-size: var(--slds-g-font-scale-base, 0.875rem);
+    font-weight: var(--slds-g-font-weight-5, 700);
+    line-height: var(--slds-g-font-line-height-3, 1.375);
+    margin: 0;
+}
+
+.md-field-row {
+    column-gap: var(--slds-g-spacing-8, 2rem);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.md-field-item {
+    border-bottom: var(--slds-g-sizing-border-1, 1px) solid var(--slds-g-color-border-1, #c9c9c9);
+    display: flex;
+    flex-direction: column;
+    gap: var(--slds-g-spacing-1, 0.25rem);
+    padding: var(--slds-g-spacing-1, 0.25rem) 0 var(--slds-g-spacing-2, 0.5rem);
+}
+
+.md-field-label {
+    color: var(--slds-g-color-on-surface-1, #5c5c5c);
+    font-size: var(--slds-g-font-scale-neg-1, 0.8125rem);
+}
+
+.md-field-value {
+    color: var(--slds-g-color-on-surface-3, #03234d);
+    font-size: var(--slds-g-font-scale-base, 0.875rem);
+}
+
+.md-related-layout {
+    background-color: var(--slds-g-color-surface-2, #f3f3f3);
+    display: flex;
+    flex-direction: column;
+    gap: var(--slds-g-spacing-3, 0.75rem);
+}
+
+.md-related-card {
+    border-radius: var(--slds-g-radius-border-2, 0.25rem);
+    display: block;
+    overflow: hidden;
+}
+
+.md-related-card-body {
+    padding: var(--slds-g-spacing-4, 1rem);
+}
+
+.md-related-table {
+    --slds-g-color-border-base-1: transparent;
+    border-radius: 0;
+    display: block;
+}

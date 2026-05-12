@@ -1,0 +1,86 @@
+<template>
+    <div class="msp-pt">
+        <lightning-card title="Term and Pricing Defaults" icon-name="standard:price_book_entries">
+            <div class="slds-var-p-around_medium msp-pt__section">
+                <p class="msp-pt__text">
+                    These defaults apply to every tier you create.
+                </p>
+                <div class="msp-pt__form-grid">
+                    <lightning-radio-group
+                        label="Default term type"
+                        name="termType"
+                        type="radio"
+                        options={termOptions}
+                        value={defaultTermType}
+                        onchange={handleTermChange}
+                    ></lightning-radio-group>
+                    <lightning-combobox
+                        label="Default currency"
+                        name="currency"
+                        options={currencyOptions}
+                        value={defaultCurrency}
+                        onchange={handleCurrencyChange}
+                    ></lightning-combobox>
+                    <lightning-input
+                        type="number"
+                        label="Default grace period (days)"
+                        min="0"
+                        max="365"
+                        value={defaultGraceDays}
+                        onchange={handleGraceChange}
+                    ></lightning-input>
+                    <lightning-input
+                        type="number"
+                        label="Default renewal window (days before term end)"
+                        min="0"
+                        max="365"
+                        value={baseRenewalWindow}
+                        onchange={handleRenewalWindow}
+                    ></lightning-input>
+                </div>
+            </div>
+        </lightning-card>
+
+        <lightning-card title="Proration & Cancellation Rules" icon-name="standard:entitlement_policy">
+            <div class="slds-var-p-around_medium msp-pt__section">
+                <p class="msp-pt__text">
+                    Decide how mid-cycle changes and cancellations are billed.
+                </p>
+                <div class="msp-pt__form-grid">
+                    <lightning-combobox
+                        label="Mid-cycle upgrade proration"
+                        name="midUpgrade"
+                        options={upgradeOptions}
+                        value={midCycleUpgrade}
+                        onchange={handleUpgradeChange}
+                    ></lightning-combobox>
+                    <lightning-combobox
+                        label="Cancellation proration"
+                        name="cancelProration"
+                        options={cancelOptions}
+                        value={cancellationProration}
+                        onchange={handleCancelChange}
+                    ></lightning-combobox>
+                </div>
+                <div class="msp-pt__toggles">
+                    <lightning-input
+                        type="toggle"
+                        label="Allow dues waivers (partial or full)"
+                        message-toggle-active="On"
+                        message-toggle-inactive="Off"
+                        checked={allowDuesWaivers}
+                        onchange={handleWaiversChange}
+                    ></lightning-input>
+                    <lightning-input
+                        type="toggle"
+                        label="Generate invoices for all transactions"
+                        message-toggle-active="On"
+                        message-toggle-inactive="Off"
+                        checked={generateInvoicesAlways}
+                        onchange={handleInvoicesChange}
+                    ></lightning-input>
+                </div>
+            </div>
+        </lightning-card>
+    </div>
+</template>
