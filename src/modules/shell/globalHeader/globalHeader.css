@@ -7,3 +7,16 @@
 .lightning-button-menu_custom {
     border-inline-end-width: var(--slds-g-sizing-border-1, 1px);
 }
+
+/*
+ * TEMP: hide the Salesforce logo (top-left) and the right-side action icons
+ * (Agentforce, Favorites, Global Actions, Guidance, Help, Setup, Notifications,
+ * Avatar) across all demo pages. The search bar remains visible.
+ *
+ * HTML is intentionally preserved in globalHeader.html — to reveal these items
+ * again, delete the rule below. The selector targets every global-header item
+ * that is NOT the search input.
+ */
+.slds-global-header__item:not(.slds-global-header__item_search) {
+    display: none;
+}
