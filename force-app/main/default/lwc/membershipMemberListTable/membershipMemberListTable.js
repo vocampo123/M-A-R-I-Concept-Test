@@ -27,7 +27,7 @@ const COLUMNS = [
         type: 'action',
         typeAttributes: {
             rowActions: [
-                { label: 'View Member', name: 'view' },
+                { label: 'View Member', name: 'view', disabled: true },
                 { label: 'Send Renewal', name: 'send_renewal' },
                 { label: 'Intervene', name: 'intervene' },
             ],
