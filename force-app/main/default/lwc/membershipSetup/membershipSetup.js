@@ -26,7 +26,7 @@ const STEP_ORDER = [
 ];
 
 const STEP_LABELS = {
-    [STEP_PROGRAM]: 'Program Basics',
+    [STEP_PROGRAM]: 'Loyalty Program',
     [STEP_TIERS]: 'Tiers',
     [STEP_BENEFITS]: 'Benefits',
     [STEP_TIER_BENEFIT_MAP]: 'Tier-Benefit Mapping',
